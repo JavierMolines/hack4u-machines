@@ -1,11 +1,15 @@
-import { IFooter } from './types'
-import { Container } from './styles'
+import { IFooter } from "./types"
+import { Container } from "./styles"
 
 const Footer: React.FC<IFooter> = () => {
-  const example = (<p>Footer is alive.</p>)
   return (
     <Container>
-      {example}
+      <p>Made by JavierVoid with more love to the Hack4u community.</p>
+
+      <p>
+        Special thanks to CheatMode4 because this page is based on their
+        website.
+      </p>
     </Container>
   )
 }

@@ -1,13 +1,8 @@
-import { IHeader } from './types'
-import { Container } from './styles'
+import { IHeader } from "./types"
+import { Container } from "./styles"
 
 const Header: React.FC<IHeader> = () => {
-  const example = (<p>Header is alive.</p>)
-  return (
-    <Container>
-      {example}
-    </Container>
-  )
+  return <Container>S4vitar Machines&apos;s Resolutions</Container>
 }
 
 export { Header }

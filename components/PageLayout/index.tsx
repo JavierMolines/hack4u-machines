@@ -8,7 +8,6 @@ const PageLayout: React.FC<IPageLayout> = ({ children, title }) => {
       <Head>
         <title>{title}</title>
         <meta name="description" content="Machines website Hack4u" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Container>{children}</Container>
