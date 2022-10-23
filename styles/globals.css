@@ -6,6 +6,15 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+html {
+  color-scheme: dark;
+}
+
+body {
+  color: white;
+  background: #242525;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -15,12 +24,11 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-}
+/*
+
+=> RED LIGHT   - #F82668
+=> RED DARK    - #B01214
+=> GRAY LIGHT  - #292A2B
+=> GRAY DARK   - #242525
+
+*/
