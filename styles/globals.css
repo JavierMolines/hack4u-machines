@@ -1,3 +1,10 @@
+:root {
+  --colorRedLight: #f82668;
+  --colorRedDark: #b01214;
+  --colorGrayLight: #292a2b;
+  --colorGrayDark: #242525;
+}
+
 html,
 body {
   padding: 0;
@@ -12,7 +19,7 @@ html {
 
 body {
   color: white;
-  background: #242525;
+  background: var(--colorGrayLight);
 }
 
 a {
@@ -23,12 +30,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-/*
-
-=> RED LIGHT   - #F82668
-=> RED DARK    - #B01214
-=> GRAY LIGHT  - #292A2B
-=> GRAY DARK   - #242525
-
-*/
