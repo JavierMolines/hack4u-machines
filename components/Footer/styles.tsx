@@ -1,8 +1,6 @@
 import styled from "styled-components"
 
 export const Container = styled.main`
-  position: fixed;
-  bottom: 0rem;
   padding: 1rem 0rem;
   display: flex;
   flex-direction: column;

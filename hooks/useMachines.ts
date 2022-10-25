@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
+import { IMachineCard } from "../components/MachineCard/types"
 
 const useMachines = () => {
-  const [machines, setMachines] = useState<Array<any>>([])
+  const [machines, setMachines] = useState<Array<IMachineCard>>([])
 
   const callApi = async () => {
     try {

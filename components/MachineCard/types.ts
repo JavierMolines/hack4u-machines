@@ -1,5 +1,11 @@
 // Types for MachineCard
 
 export interface IMachineCard {
-    title: string
+  name: string
+  ip: string
+  os: string
+  state: string
+  techniques: string
+  certification: string
+  video: string
 }

@@ -1,18 +1,35 @@
 import { IContainerMachines } from "./types"
 import { Container } from "./styles"
 import { MachineCard } from "../MachineCard"
-// import { useUserInfo } from "../../hooks/useUser"
 import { useMachines } from "../../hooks/useMachines"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { IMachineCard } from "../MachineCard/types"
 
 const ContainerMachines: React.FC<IContainerMachines> = () => {
   const { machines } = useMachines()
-  const [machinesInView, setMachinesInView] = useState<Array<any>>([1, 2, 3, 4])
+  const [machinesInView, setMachinesInView] = useState<Array<IMachineCard>>([])
+
+  useEffect(() => {
+    if (machines.length > 0) {
+      setMachinesInView(machines.splice(0, 10))
+    }
+  }, [machines])
 
   return (
     <Container>
-      {machinesInView.map((data: any, index: number) => {
-        return <MachineCard title={data.name} key={index} />
+      {machinesInView.map((data, index: number) => {
+        return (
+          <MachineCard
+            name={data.name}
+            os={data.os}
+            certification={data.certification}
+            techniques={data.techniques}
+            video={data.video}
+            ip={data.ip}
+            state={data.state}
+            key={index}
+          />
+        )
       })}
     </Container>
   )

@@ -1,9 +1,12 @@
 import styled from "styled-components"
 
-export const Container = styled.div``
-
-export const CardLabel = styled.header`
+export const Container = styled.header`
   display: grid;
-  grid-template-columns: repeat(2, 50%);
-  justify-content: space-between;
+  grid-template-columns: 40% 60%;
+  font-size: 0.5rem;
+`
+
+export const CardLabel = styled.div`
+  display: flex;
+  flex-direction: column;
 `
