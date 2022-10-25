@@ -1,7 +1,8 @@
 import { IFooter } from "./types"
-import { Container, LinePerson } from "./styles"
+import { Container, IconLove, LinePerson } from "./styles"
 
 const Footer: React.FC<IFooter> = () => {
+  const dimension = 20
   return (
     <Container>
       <p>
@@ -9,7 +10,14 @@ const Footer: React.FC<IFooter> = () => {
         <LinePerson target="_blank" href="https://github.com/JavierMolines/">
           JavierVoid
         </LinePerson>
-        with more love to the Hack4u community.
+        with more
+        <IconLove
+          src="/love.svg"
+          height={dimension}
+          width={dimension}
+          alt="love"
+        />
+        to the Hack4u community.
       </p>
 
       <p>

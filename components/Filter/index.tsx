@@ -1,10 +1,10 @@
 import { IFilter } from "./types"
-import { Container, Input } from "./styles"
+import { ButtonSearch, Container, ContainerSearch, Input } from "./styles"
 import Image from "next/image"
 import { FormEvent, useRef } from "react"
 
 const Filter: React.FC<IFilter> = () => {
-  const dimension: number = 20
+  const dimension: number = 25
   const inputFilter = useRef<HTMLInputElement>(null)
   const onSubmit = (event: FormEvent) => {
     event.preventDefault()
@@ -18,12 +18,14 @@ const Filter: React.FC<IFilter> = () => {
 
   return (
     <Container onSubmit={onSubmit}>
-      <Image
-        src="/search.svg"
-        width={dimension}
-        height={dimension}
-        alt="search"
-      />
+      <ContainerSearch>
+        <Image
+          src="/search.svg"
+          width={dimension}
+          height={dimension}
+          alt="search"
+        />
+      </ContainerSearch>
       <Input
         type="text"
         ref={inputFilter}
@@ -31,6 +33,7 @@ const Filter: React.FC<IFilter> = () => {
         name="machineSearch"
         placeholder="Search (filter by) name, so, difficulty, skills."
       />
+      <ButtonSearch>Search</ButtonSearch>
     </Container>
   )
 }

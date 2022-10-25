@@ -1,17 +1,14 @@
 import styled from "styled-components"
 
 export const Container = styled.form`
-  padding: 0.5rem;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 5% 75% 20%;
   background-color: var(--colorGrayDark);
   border-radius: 0.5rem;
 `
 
 export const Input = styled.input`
-  width: 90%;
   font-size: 1.2rem;
   padding-left: 0.5rem;
   border: none;
@@ -22,4 +19,21 @@ export const Input = styled.input`
   ::placeholder {
     color: white;
   }
+`
+
+export const ButtonSearch = styled.button`
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  background-color: var(--colorRedDark);
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  padding: 0.5rem 0rem;
+`
+
+export const ContainerSearch = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `

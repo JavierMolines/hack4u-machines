@@ -1,42 +1,17 @@
 import { IContainerMachines } from "./types"
 import { Container } from "./styles"
 import { MachineCard } from "../MachineCard"
-import { useEffect } from "react"
+// import { useUserInfo } from "../../hooks/useUser"
+import { useMachines } from "../../hooks/useMachines"
+import { useState } from "react"
 
 const ContainerMachines: React.FC<IContainerMachines> = () => {
-  const machines: Array<any> = [
-    {
-      name: "generate1",
-    },
-    {
-      name: "generate2",
-    },
-    {
-      name: "generate3",
-    },
-    {
-      name: "generate4",
-    },
-    {
-      name: "generate5",
-    },
-  ]
-
-  const callApi = async () => {
-    const data = await fetch("https://randomuser.me/api/")
-    const text = await data.json()
-    return text
-  }
-
-  useEffect(() => {
-    console.log("hello")
-    const general = callApi()
-    console.log(general)
-  }, [])
+  const { machines } = useMachines()
+  const [machinesInView, setMachinesInView] = useState<Array<any>>([1, 2, 3, 4])
 
   return (
     <Container>
-      {machines.map((data: any, index: number) => {
+      {machinesInView.map((data: any, index: number) => {
         return <MachineCard title={data.name} key={index} />
       })}
     </Container>

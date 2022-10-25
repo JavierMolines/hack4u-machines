@@ -4,6 +4,7 @@
     "esbenp.prettier-vscode",
     "usernamehw.errorlens",
     "mhutchie.git-graph",
-    "styled-components.vscode-styled-components"
+    "styled-components.vscode-styled-components",
+    "jock.svg"
   ]
 }

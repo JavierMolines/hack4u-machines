@@ -23,3 +23,7 @@ export const LinePerson = styled.a`
     color: var(--colorRedDark);
   }
 `
+
+export const IconLove = styled.img`
+  margin: 0rem 0.2rem;
+`
