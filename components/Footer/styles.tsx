@@ -3,11 +3,11 @@ import styled from "styled-components"
 export const Container = styled.main`
   position: fixed;
   bottom: 0rem;
-  padding: 2rem 0rem;
+  padding: 1rem 0rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 
   & p {
     padding: 0rem;
