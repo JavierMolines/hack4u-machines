@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const Container = styled.form`
   width: 100%;
   display: grid;
-  grid-template-columns: 5% 75% 20%;
+  grid-template-columns: 5% 5% 70% 20%;
   background-color: var(--colorGrayDark);
   border-radius: 0.5rem;
 `
@@ -44,4 +44,14 @@ export const ContainerSearch = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+
+export const ContainerFilter = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--colorRedDark);
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 `
