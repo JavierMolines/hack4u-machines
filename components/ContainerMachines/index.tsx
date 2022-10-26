@@ -11,7 +11,7 @@ const ContainerMachines: React.FC<IContainerMachines> = () => {
 
   useEffect(() => {
     if (machines.length > 0) {
-      setMachinesInView(machines.splice(0, 10))
+      setMachinesInView(machines.splice(-50))
     }
   }, [machines])
 

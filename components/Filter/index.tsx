@@ -17,7 +17,7 @@ const Filter: React.FC<IFilter> = () => {
   }
 
   return (
-    <Container onSubmit={onSubmit}>
+    <Container aria-autocomplete="none" autoComplete="off" onSubmit={onSubmit}>
       <ContainerSearch>
         <Image
           src="/search.svg"
@@ -28,6 +28,8 @@ const Filter: React.FC<IFilter> = () => {
       </ContainerSearch>
       <Input
         type="text"
+        aria-autocomplete="none"
+        autoComplete="off"
         ref={inputFilter}
         id="machineSearch"
         name="machineSearch"

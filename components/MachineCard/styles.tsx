@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const Container = styled.header`
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 20% 80%;
   font-size: 0.5rem;
 `
 
