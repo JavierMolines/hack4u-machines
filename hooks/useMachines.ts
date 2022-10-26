@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react"
-import { IMachineCard } from "../components/MachineCard/types"
+import { useContext, useEffect } from "react"
+import { MachinesContext } from "../context/MachineContent"
 
 const useMachines = () => {
-  const [machines, setMachines] = useState<Array<IMachineCard>>([])
+  const { machines, setMachines } = useContext(MachinesContext)
 
   const callApi = async () => {
     try {
@@ -14,7 +14,8 @@ const useMachines = () => {
 
   useEffect(() => {
     callApi()
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setMachines])
 
   return { machines }
 }
