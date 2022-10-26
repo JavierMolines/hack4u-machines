@@ -2,7 +2,7 @@ import { IFooter } from "./types"
 import { Container, IconLove, LinePerson } from "./styles"
 
 const Footer: React.FC<IFooter> = () => {
-  const dimension = 20
+  const dimension = 15
   return (
     <Container>
       <p>

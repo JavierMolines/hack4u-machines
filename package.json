@@ -13,7 +13,8 @@
     "next": "12.3.1",
     "node-html-parser": "^6.1.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "vercel": "^19.1.2"
   },
   "devDependencies": {
     "@types/node": "18.11.3",

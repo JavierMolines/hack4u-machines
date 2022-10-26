@@ -1,4 +1,5 @@
 import type { NextPage } from "next"
+import { useState } from "react"
 import { ContainerMachines } from "../components/ContainerMachines"
 import { Filter } from "../components/Filter"
 import { Footer } from "../components/Footer"
@@ -9,6 +10,7 @@ import { useMachines } from "../hooks/useMachines"
 
 const Home: NextPage = () => {
   const { machines } = useMachines()
+  const [machinesInView, setMachinesInView] = useState<Array<any>>([])
 
   return (
     <PageLayout title="HTB Machines - Search engine">
@@ -17,8 +19,8 @@ const Home: NextPage = () => {
         <Loading />
       ) : (
         <>
-          <Filter />
-          <ContainerMachines machines={machines} />
+          <Filter callbackShowMachines={setMachinesInView} />
+          <ContainerMachines machines={machinesInView} />
         </>
       )}
       <Footer />

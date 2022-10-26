@@ -1,3 +1,5 @@
 // Types for Filter
 
-export interface IFilter {}
+export interface IFilter {
+  callbackShowMachines: Function
+}

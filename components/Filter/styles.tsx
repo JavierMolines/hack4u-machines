@@ -17,7 +17,15 @@ export const Input = styled.input`
   color: white;
 
   ::placeholder {
-    color: white;
+    color: gray;
+  }
+
+  :-ms-input-placeholder {
+    color: gray;
+  }
+
+  ::-ms-input-placeholder {
+    color: gray;
   }
 `
 

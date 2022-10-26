@@ -1,19 +1,36 @@
 import { IFilter } from "./types"
 import { ButtonSearch, Container, ContainerSearch, Input } from "./styles"
 import Image from "next/image"
-import { FormEvent, useRef } from "react"
+import { FormEvent, useContext, useRef } from "react"
+import { MachinesContext } from "../../context/MachineContent"
 
-const Filter: React.FC<IFilter> = () => {
+const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
   const dimension: number = 25
+  const contextMachine = useContext(MachinesContext)
   const inputFilter = useRef<HTMLInputElement>(null)
+
   const onSubmit = (event: FormEvent) => {
     event.preventDefault()
     const input = inputFilter.current?.value ?? ""
-    filterData(input)
-  }
+    if (input === "") {
+      callbackShowMachines([])
+      return
+    }
 
-  const filterData = (input: string) => {
-    console.log(input)
+    const regExpTmp = new RegExp(`${input}`, "ig")
+    const filter = contextMachine.machines.filter((box) => {
+      if (regExpTmp.test(box.name)) return true
+      if (regExpTmp.test(box.ip)) return true
+      if (regExpTmp.test(box.os)) return true
+      if (regExpTmp.test(box.techniques)) return true
+      if (regExpTmp.test(box.certification)) return true
+      if (regExpTmp.test(box.state)) return true
+      if (regExpTmp.test(box.video)) return true
+
+      return false
+    })
+
+    callbackShowMachines(filter)
   }
 
   return (
@@ -27,6 +44,7 @@ const Filter: React.FC<IFilter> = () => {
         />
       </ContainerSearch>
       <Input
+        autoFocus
         type="text"
         aria-autocomplete="none"
         autoComplete="off"

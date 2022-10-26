@@ -1,6 +1,10 @@
 import styled from "styled-components"
 
 export const Container = styled.main`
+  font-size: 0.6rem;
+  width: 100%;
+  background-color: var(--colorGrayLight);
+
   position: fixed;
   bottom: 0rem;
   padding: 0.5rem 0rem;

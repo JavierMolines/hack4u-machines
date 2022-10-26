@@ -1,23 +1,11 @@
 import { IContainerMachines } from "./types"
 import { Container } from "./styles"
 import { MachineCard } from "../MachineCard"
-import { useEffect, useState } from "react"
-import { IMachineCard } from "../MachineCard/types"
 
 const ContainerMachines: React.FC<IContainerMachines> = ({ machines }) => {
-  const [machinesInView, setMachinesInView] = useState<Array<IMachineCard>>([])
-
-  /*
-  useEffect(() => {
-    if (machines.length > 0) {
-      setMachinesInView(machines.splice(0, 20))
-    }
-  }, [machines])
-  */
-
   return (
     <Container>
-      {machinesInView.map((data, index: number) => {
+      {machines.map((data, index: number) => {
         return (
           <MachineCard
             name={data.name}
