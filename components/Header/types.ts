@@ -1,3 +1,5 @@
 // Types for Header
 
-export interface IHeader {}
+export interface IHeader {
+  totalMachines: number
+}
