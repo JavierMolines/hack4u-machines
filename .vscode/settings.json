@@ -9,7 +9,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-  "cSpell.words": ["vitar"],
+  "cSpell.words": ["Difícil", "Fácil", "vitar", "Vuln"],
   "[svg]": {
     "editor.defaultFormatter": "jock.svg"
   }
