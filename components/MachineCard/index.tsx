@@ -1,45 +1,103 @@
-import { IMachineCard } from "./types"
-import { CardLabel, Container, ContainerExpand } from "./styles"
 import Image from "next/image"
+import { IMachineCard } from "./types"
+import { useState } from "react"
+import {
+  CardLabel,
+  CertificationsContainer,
+  Container,
+  TextWithIcon,
+  ContainerExpand,
+  TechniquesContainer,
+} from "./styles"
 
 const MachineCard: React.FC<IMachineCard> = ({
   name,
   ip,
   os,
   state,
+  platform = "HackTheBox",
   techniques,
   video,
   certification,
 }) => {
-  // const techCollection = techniques.split("\n")
   const dimension = 20
+  const dimensionIcon = 15
+  const [compress, setCompress] = useState(true)
+  const certCollection = certification.split("\n")
+  const techCollection = techniques.split("\n")
+  const handlerClick = () => setCompress(!compress)
+  const iconArrowName = `/${compress ? "arrowDown" : "arrowRight"}.svg`
+  const iconByState = (stateMachine: string) => {
+    switch (stateMachine) {
+      case "Fácil":
+        return "easy"
+      case "Media":
+        return "medium"
+      case "Difícil":
+        return "hard"
+      default:
+        return "insane"
+    }
+  }
+
   return (
     <Container>
-      <CardLabel>
+      <CardLabel onClick={handlerClick}>
         <p>{name}</p>
-        <p>{ip}</p>
-        <p>{os}</p>
-        <p>{state}</p>
+        <p>{platform}</p>
+
+        <TextWithIcon>
+          <Image
+            src="/settings.svg"
+            width={dimensionIcon}
+            height={dimensionIcon}
+            alt="arrow"
+          />
+          <p>{os}</p>
+        </TextWithIcon>
+
+        <TextWithIcon>
+          <Image
+            src={`/${iconByState(state)}.svg`}
+            width={dimensionIcon}
+            height={dimensionIcon}
+            alt="arrow"
+          />
+          <p>{state}</p>
+        </TextWithIcon>
+
+        <p>Skill used {techCollection.length}</p>
+        <p>Certify apply {certCollection.length}</p>
+
         <ContainerExpand>
           <Image
-            src="/search.svg"
+            src={iconArrowName}
             width={dimension}
             height={dimension}
-            alt="search"
+            alt="arrow"
           />
         </ContainerExpand>
       </CardLabel>
+
+      {!compress ? (
+        <>
+          <p>Skills:</p>
+          <TechniquesContainer>
+            {techCollection.map((technique, index) => {
+              return <li key={technique + " " + index}>{technique}</li>
+            })}
+          </TechniquesContainer>
+          <CertificationsContainer>
+            {certCollection.map((cert, index) => {
+              return <p key={cert + " " + index}>{cert}</p>
+            })}
+          </CertificationsContainer>
+        </>
+      ) : (
+        <></>
+      )}
     </Container>
   )
 }
-
-/*
-
-      <CardLabel>
-        {techCollection.map((data, index) => {
-          return <p key={data + " " + index}>{data}</p>
-        })}
-      </CardLabel>
-*/
 
 export { MachineCard }

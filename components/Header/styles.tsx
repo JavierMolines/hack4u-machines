@@ -18,3 +18,13 @@ export const Container = styled.main`
     margin: 0rem;
   }
 `
+
+export const PlatformContainer = styled.div`
+  display: flex;
+  gap: 3rem;
+
+  & > p {
+    margin: 0rem;
+    padding: 0rem;
+  }
+`

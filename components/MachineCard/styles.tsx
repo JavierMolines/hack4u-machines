@@ -7,8 +7,11 @@ export const Container = styled.header`
 
 export const CardLabel = styled.div`
   display: grid;
-  grid-template-columns: 25% 25% 15% 15% 10%;
+  grid-template-columns: 15% 15% 10% 10% 15% 15% 5%;
   justify-content: space-between;
+  :hover {
+    cursor: pointer;
+  }
 `
 
 export const ContainerExpand = styled.div`
@@ -16,4 +19,34 @@ export const ContainerExpand = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+
+export const TechniquesContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 45%);
+  justify-content: space-between;
+
+  & > li {
+    margin: 0rem;
+    padding: 0rem;
+  }
+`
+
+export const CertificationsContainer = styled.div`
+  border-left: 5px solid red;
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 0rem;
+  padding: 0.01rem 0.5rem;
+  width: 100%;
+  background-color: var(--colorGrayLight);
+  border-radius: 4px;
+`
+
+export const TextWithIcon = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.25rem;
 `

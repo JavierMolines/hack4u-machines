@@ -8,4 +8,5 @@ export interface IMachineCard {
   techniques: string
   certification: string
   video: string
+  platform: string
 }

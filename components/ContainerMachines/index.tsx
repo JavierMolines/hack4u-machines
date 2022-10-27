@@ -8,6 +8,7 @@ const ContainerMachines: React.FC<IContainerMachines> = ({ machines }) => {
       {machines.map((data, index: number) => {
         return (
           <MachineCard
+            platform={data.platform}
             name={data.name}
             os={data.os}
             certification={data.certification}
