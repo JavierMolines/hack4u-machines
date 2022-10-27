@@ -42,16 +42,36 @@ const MachineCard: React.FC<IMachineCard> = ({
 
   return (
     <Container>
-      <CardLabel onClick={handlerClick}>
-        <p>{name}</p>
-        <p>{platform}</p>
+      <CardLabel>
+        <TextWithIcon>
+          <a
+            style={{
+              color: "var(--colorRedLight)",
+            }}
+            href={video}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <p
+              style={{
+                fontSize: "1.2rem",
+              }}
+            >
+              {name}
+            </p>
+          </a>
+        </TextWithIcon>
+
+        <TextWithIcon>
+          <p>{platform}</p>
+        </TextWithIcon>
 
         <TextWithIcon>
           <Image
             src="/settings.svg"
             width={dimensionIcon}
             height={dimensionIcon}
-            alt="arrow"
+            alt="settings"
           />
           <p>{os}</p>
         </TextWithIcon>
@@ -61,15 +81,20 @@ const MachineCard: React.FC<IMachineCard> = ({
             src={`/${iconByState(state)}.svg`}
             width={dimensionIcon}
             height={dimensionIcon}
-            alt="arrow"
+            alt="state"
           />
           <p>{state}</p>
         </TextWithIcon>
 
-        <p>Skill used {techCollection.length}</p>
-        <p>Certify apply {certCollection.length}</p>
+        <TextWithIcon>
+          <p>Certify apply {certCollection.length}</p>
+        </TextWithIcon>
 
-        <ContainerExpand>
+        <TextWithIcon>
+          <p>Skill used {techCollection.length}</p>
+        </TextWithIcon>
+
+        <ContainerExpand style={{ cursor: "pointer" }} onClick={handlerClick}>
           <Image
             src={iconArrowName}
             width={dimension}

@@ -7,11 +7,8 @@ export const Container = styled.header`
 
 export const CardLabel = styled.div`
   display: grid;
-  grid-template-columns: 15% 15% 10% 10% 15% 15% 5%;
+  grid-template-columns: 20% 10% 10% 10% 15% 15% 5%;
   justify-content: space-between;
-  :hover {
-    cursor: pointer;
-  }
 `
 
 export const ContainerExpand = styled.div`
