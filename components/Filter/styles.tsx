@@ -37,21 +37,21 @@ export const ButtonSearch = styled.button`
   outline: none;
   font-size: 1.1rem;
   padding: 0.5rem 0rem;
+  cursor: pointer;
 `
 
-export const ContainerSearch = styled.div`
+const BaseDivFlex = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 `
 
-export const ContainerFilter = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const ContainerSearch = styled(BaseDivFlex)``
+
+export const ContainerFilter = styled(BaseDivFlex)`
   background-color: var(--colorRedDark);
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
+  cursor: pointer;
 `
