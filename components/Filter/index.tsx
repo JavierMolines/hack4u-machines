@@ -24,17 +24,34 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
       return
     }
 
-    const regExpTmp = new RegExp(`${input}`, "ig")
     const filter = contextMachine.machines.filter((box) => {
-      if (regExpTmp.test(box.name)) return true
-      if (regExpTmp.test(box.ip)) return true
-      if (regExpTmp.test(box.os)) return true
-      if (regExpTmp.test(box.techniques)) return true
-      if (regExpTmp.test(box.certification)) return true
-      if (regExpTmp.test(box.state)) return true
-      if (regExpTmp.test(box.video)) return true
+      let count = 0
+      const totalMachines = input.split(" ")
+      const filterApproval = totalMachines.length
 
-      return false
+      for (const iterator of totalMachines) {
+        const regExpTmp = new RegExp(`${iterator}`, "ig")
+
+        if (
+          regExpTmp.test(box.name) ||
+          regExpTmp.test(box.os) ||
+          regExpTmp.test(box.techniques) ||
+          regExpTmp.test(box.certification) ||
+          regExpTmp.test(box.state) ||
+          regExpTmp.test(box.platform)
+        ) {
+          count++
+          continue
+        }
+
+        if (count === filterApproval) break
+      }
+
+      if (count === filterApproval) {
+        return true
+      } else {
+        return false
+      }
     })
 
     callbackShowMachines(filter)
