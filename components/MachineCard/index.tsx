@@ -1,6 +1,7 @@
-import Image from "next/image"
-import { IMachineCard } from "./types"
 import { useState } from "react"
+import { IMachineCard } from "./types"
+import { Link } from "../Link"
+import { Icon } from "../Icon"
 import {
   CardLabel,
   CertificationsContainer,
@@ -27,6 +28,8 @@ const MachineCard: React.FC<IMachineCard> = ({
   const techCollection = techniques.split("\n")
   const handlerClick = () => setCompress(!compress)
   const iconArrowName = `/${compress ? "arrowDown" : "arrowRight"}.svg`
+  const iconByPlatform = (inPlatform: string) =>
+    inPlatform === "Windows" ? "windows" : "linux"
   const iconByState = (stateMachine: string) => {
     switch (stateMachine) {
       case "Fácil":
@@ -40,18 +43,23 @@ const MachineCard: React.FC<IMachineCard> = ({
     }
   }
 
+  const platformRender = () => {
+    if (platform === "HackTheBox") {
+      return <p>{platform}</p>
+    } else {
+      return (
+        <Link target={ip} color="#66ccff">
+          {platform}
+        </Link>
+      )
+    }
+  }
+
   return (
     <Container>
       <CardLabel>
         <TextWithIcon>
-          <a
-            style={{
-              color: "var(--colorRedLight)",
-            }}
-            href={video}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <Link target={video} color="var(--colorRedLight)">
             <p
               style={{
                 fontSize: "1.2rem",
@@ -59,30 +67,18 @@ const MachineCard: React.FC<IMachineCard> = ({
             >
               {name}
             </p>
-          </a>
+          </Link>
         </TextWithIcon>
 
-        <TextWithIcon>
-          <p>{platform}</p>
-        </TextWithIcon>
+        <TextWithIcon>{platformRender()}</TextWithIcon>
 
         <TextWithIcon>
-          <Image
-            src="/settings.svg"
-            width={dimensionIcon}
-            height={dimensionIcon}
-            alt="settings"
-          />
+          <Icon src={`/${iconByPlatform(os)}.svg`} dimension={dimensionIcon} />
           <p>{os}</p>
         </TextWithIcon>
 
         <TextWithIcon>
-          <Image
-            src={`/${iconByState(state)}.svg`}
-            width={dimensionIcon}
-            height={dimensionIcon}
-            alt="state"
-          />
+          <Icon src={`/${iconByState(state)}.svg`} dimension={dimensionIcon} />
           <p>{state}</p>
         </TextWithIcon>
 
@@ -95,12 +91,7 @@ const MachineCard: React.FC<IMachineCard> = ({
         </TextWithIcon>
 
         <ContainerExpand style={{ cursor: "pointer" }} onClick={handlerClick}>
-          <Image
-            src={iconArrowName}
-            width={dimension}
-            height={dimension}
-            alt="arrow"
-          />
+          <Icon src={iconArrowName} dimension={dimension} />
         </ContainerExpand>
       </CardLabel>
 
