@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { MachinesContext } from "../context/MachineContent"
 
 const useMachines = () => {

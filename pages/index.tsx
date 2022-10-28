@@ -14,7 +14,7 @@ const Home: NextPage = () => {
 
   return (
     <PageLayout title="HTB Machines - Search engine">
-      <Header totalMachines={machines.length} />
+      <Header totalMachines={machines} />
       {machines.length === 0 ? (
         <Loading />
       ) : (
