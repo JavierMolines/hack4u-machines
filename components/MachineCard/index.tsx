@@ -32,11 +32,11 @@ const MachineCard: React.FC<IMachineCard> = ({
     inPlatform === "Windows" ? "windows" : "linux"
   const iconByState = (stateMachine: string) => {
     switch (stateMachine) {
-      case "Fácil":
+      case "Easy":
         return "easy"
-      case "Media":
+      case "Medium":
         return "medium"
-      case "Difícil":
+      case "Hard":
         return "hard"
       default:
         return "insane"
