@@ -40,7 +40,7 @@ export const CertificationsContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin: 1rem 0rem;
-  padding: 0.01rem 0.5rem;
+  padding: 0.5rem 0.5rem;
   width: 100%;
   background-color: var(--colorGrayLight);
   border-radius: 4px;
