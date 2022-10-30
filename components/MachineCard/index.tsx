@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { IMachineCard } from "./types"
+import { iconByPlatform, iconByState } from "../../utils/methods"
 import { Link } from "../Link"
 import { Icon } from "../Icon"
 import {
@@ -26,21 +27,15 @@ const MachineCard: React.FC<IMachineCard> = ({
   const [compress, setCompress] = useState(true)
   const certCollection = certification.split("\n")
   const techCollection = techniques.split("\n")
+  const totalTechCollection =
+    techCollection.length % 2 === 0
+      ? techCollection.length / 2
+      : (techCollection.length + 1) / 2
   const handlerClick = () => setCompress(!compress)
   const iconArrowName = `/${compress ? "arrowDown" : "arrowRight"}.svg`
-  const iconByPlatform = (inPlatform: string) =>
-    inPlatform === "Windows" ? "windows" : "linux"
-  const iconByState = (stateMachine: string) => {
-    switch (stateMachine) {
-      case "Fácil":
-        return "easy"
-      case "Media":
-        return "medium"
-      case "Difícil":
-        return "hard"
-      default:
-        return "insane"
-    }
+  const dataTech = {
+    left: techCollection.slice(0, totalTechCollection),
+    right: techCollection.slice(totalTechCollection),
   }
 
   const platformRender = () => {
@@ -53,6 +48,41 @@ const MachineCard: React.FC<IMachineCard> = ({
         </Link>
       )
     }
+  }
+
+  const tabContentExpand = () => {
+    if (compress) return <></>
+
+    return (
+      <>
+        <p>Skills:</p>
+        <TechniquesContainer>
+          <div>
+            {dataTech.left.map((technique, index) => {
+              return (
+                <li key={technique + " " + index}>
+                  <span>{technique}</span>
+                </li>
+              )
+            })}
+          </div>
+          <div>
+            {dataTech.right.map((technique, index) => {
+              return (
+                <li key={technique + " " + index}>
+                  <span>{technique}</span>
+                </li>
+              )
+            })}
+          </div>
+        </TechniquesContainer>
+        <CertificationsContainer>
+          {certCollection.map((cert, index) => {
+            return <span key={cert + " " + index}>{cert}</span>
+          })}
+        </CertificationsContainer>
+      </>
+    )
   }
 
   return (
@@ -89,23 +119,7 @@ const MachineCard: React.FC<IMachineCard> = ({
         </ContainerExpand>
       </CardLabel>
 
-      {!compress ? (
-        <>
-          <p>Skills:</p>
-          <TechniquesContainer>
-            {techCollection.map((technique, index) => {
-              return <li key={technique + " " + index}>{technique}</li>
-            })}
-          </TechniquesContainer>
-          <CertificationsContainer>
-            {certCollection.map((cert, index) => {
-              return <p key={cert + " " + index}>{cert}</p>
-            })}
-          </CertificationsContainer>
-        </>
-      ) : (
-        <></>
-      )}
+      {tabContentExpand()}
     </Container>
   )
 }
