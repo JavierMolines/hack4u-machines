@@ -33,6 +33,7 @@ export const ButtonSearch = styled.button`
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   background-color: var(--colorRedDark);
+  color: white;
   border: none;
   outline: none;
   font-size: 1.1rem;

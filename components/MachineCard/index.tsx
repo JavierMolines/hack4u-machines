@@ -60,13 +60,7 @@ const MachineCard: React.FC<IMachineCard> = ({
       <CardLabel>
         <TextWithIcon>
           <Link target={video} color="var(--colorRedLight)">
-            <p
-              style={{
-                fontSize: "1.2rem",
-              }}
-            >
-              {name}
-            </p>
+            <p>{name}</p>
           </Link>
         </TextWithIcon>
 
