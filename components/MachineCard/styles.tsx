@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Container = styled.header`
-  font-size: 0.7rem;
+  font-size: 1rem;
   border-bottom: 1px white solid;
 `
 
