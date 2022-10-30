@@ -20,12 +20,17 @@ export const ContainerExpand = styled.div`
 
 export const TechniquesContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 45%);
+  grid-template-columns: repeat(2, 48%);
   justify-content: space-between;
 
   & > li {
     margin: 0rem;
     padding: 0rem;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
   }
 `
 

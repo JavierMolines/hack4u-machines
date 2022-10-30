@@ -16,7 +16,7 @@ const ContainerMachines: React.FC<IContainerMachines> = ({ machines }) => {
             video={data.video}
             ip={data.ip}
             state={data.state}
-            key={index}
+            key={index + data.certification + data.name}
           />
         )
       })}

@@ -1,6 +1,8 @@
 import { mappingOfState } from "./definition"
 
 const textParseTrim = (node: any) => node?.textContent?.trim()
+const iconByPlatform = (inPlatform: string) =>
+  inPlatform === "Windows" ? "windows" : "linux"
 
 const generate = (totalMachines: Array<any>) => {
   let innerData = []
@@ -12,6 +14,19 @@ const generate = (totalMachines: Array<any>) => {
   }
 
   return innerData.join("\n")
+}
+
+const iconByState = (stateMachine: string) => {
+  switch (stateMachine) {
+    case "Easy":
+      return "easy"
+    case "Medium":
+      return "medium"
+    case "Hard":
+      return "hard"
+    default:
+      return "insane"
+  }
 }
 
 const getParseState = (info: any) => {
@@ -26,4 +41,4 @@ const getParseState = (info: any) => {
   return format
 }
 
-export { generate, textParseTrim, getParseState }
+export { generate, textParseTrim, getParseState, iconByPlatform, iconByState }
