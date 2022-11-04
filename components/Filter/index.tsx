@@ -1,5 +1,5 @@
 import { IFilter } from "./types"
-import { FormEvent, useContext, useRef } from "react"
+import { FormEvent, useContext, useRef, useState } from "react"
 import { MachinesContext } from "../../context/MachineContent"
 import { Icon } from "../Icon/"
 
@@ -8,13 +8,17 @@ import {
   Container,
   ContainerFilter,
   ContainerSearch,
+  FilterContainer,
   Input,
 } from "./styles"
+import AdvancedFilter from "../AdvancedFilter"
 
 const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
   const dimension: number = 25
   const contextMachine = useContext(MachinesContext)
   const inputFilter = useRef<HTMLInputElement>(null)
+  const [showAdvancedFilter, setShowAdvancedFilter] = useState<boolean>(false)
+  const filterOnClick = () => setShowAdvancedFilter(!showAdvancedFilter)
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault()
@@ -57,13 +61,9 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
     callbackShowMachines(filter)
   }
 
-  const filterOnClick = () => {
-    alert("Coming Soon.")
-  }
-
   return (
-    <>
-      <Container autoComplete="off" onSubmit={onSubmit}>
+    <Container>
+      <FilterContainer autoComplete="off" onSubmit={onSubmit}>
         <ContainerFilter onClick={filterOnClick}>
           <Icon src="/filter.svg" dimension={dimension} />
         </ContainerFilter>
@@ -84,8 +84,9 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
         />
 
         <ButtonSearch>Search</ButtonSearch>
-      </Container>
-    </>
+      </FilterContainer>
+      {showAdvancedFilter && <AdvancedFilter />}
+    </Container>
   )
 }
 

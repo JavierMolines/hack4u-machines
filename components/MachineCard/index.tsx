@@ -57,7 +57,7 @@ const MachineCard: React.FC<IMachineCard> = ({
       <>
         <p>Skills:</p>
         <TechniquesContainer>
-          <div>
+          <ul>
             {dataTech.left.map((technique, index) => {
               return (
                 <li key={technique + " " + index}>
@@ -65,8 +65,8 @@ const MachineCard: React.FC<IMachineCard> = ({
                 </li>
               )
             })}
-          </div>
-          <div>
+          </ul>
+          <ul>
             {dataTech.right.map((technique, index) => {
               return (
                 <li key={technique + " " + index}>
@@ -74,7 +74,7 @@ const MachineCard: React.FC<IMachineCard> = ({
                 </li>
               )
             })}
-          </div>
+          </ul>
         </TechniquesContainer>
         <CertificationsContainer>
           {certCollection.map((cert, index) => {
