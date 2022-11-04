@@ -8,8 +8,9 @@ const generate = (totalMachines: Array<any>) => {
   let innerData = []
 
   for (const iterator of totalMachines) {
-    if (iterator !== "") {
-      innerData.push(iterator)
+    const textFormat = textParseTrim(iterator)
+    if (textFormat !== "") {
+      innerData.push(textFormat)
     }
   }
 
