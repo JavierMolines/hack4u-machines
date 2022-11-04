@@ -27,7 +27,7 @@ const AdvancedFilter: React.FC<IAdvancedFilter> = () => {
 
   const buttonClick = () => {
     if (checks.length === 0) return
-    console.log("TECH")
+    alert("Coming soon.")
   }
 
   return (
