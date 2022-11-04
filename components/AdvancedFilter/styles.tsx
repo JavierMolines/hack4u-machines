@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { ISelected } from "./types"
 
 export const Container = styled.div`
+  border-radius: 0.5rem;
   margin: 1rem 0rem 0rem 0rem;
   padding: 1rem 1rem;
   background-color: var(--colorGrayDark);

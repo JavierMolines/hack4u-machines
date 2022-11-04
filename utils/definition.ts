@@ -1,6 +1,17 @@
+const filterExact = 3403
+const detailMachine = 4309
+const sortHight = 5450
+
 const mapInfo = {
   htb: "HackTheBox",
   vuln: "VulnHub",
+}
+
+const mappingOfState: any = {
+  fácil: "Easy",
+  media: "Medium",
+  difícil: "Hard",
+  insane: "Insane",
 }
 
 const urlMachines = [
@@ -14,11 +25,18 @@ const urlMachines = [
   },
 ]
 
-const mappingOfState: any = {
-  fácil: "Easy",
-  media: "Medium",
-  difícil: "Hard",
-  insane: "Insane",
-}
+const optionsFilters = [
+  { id: filterExact, title: "exact search" },
+  { id: detailMachine, title: "detail machine expand" },
+  { id: sortHight, title: "sort by most skills" },
+]
 
-export { mapInfo, urlMachines, mappingOfState }
+export {
+  optionsFilters,
+  mapInfo,
+  urlMachines,
+  mappingOfState,
+  sortHight,
+  filterExact,
+  detailMachine,
+}
