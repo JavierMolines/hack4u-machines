@@ -3,4 +3,5 @@
 export interface IIcon {
   src: string
   dimension: number
+  click?: any
 }

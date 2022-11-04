@@ -2,6 +2,7 @@ import { IFilter } from "./types"
 import { FormEvent, useContext, useRef, useState } from "react"
 import { MachinesContext } from "../../context/MachineContent"
 import { Icon } from "../Icon/"
+import { AdvancedFilter } from "../AdvancedFilter"
 
 import {
   ButtonSearch,
@@ -11,7 +12,6 @@ import {
   FilterContainer,
   Input,
 } from "./styles"
-import AdvancedFilter from "../AdvancedFilter"
 
 const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
   const dimension: number = 25
