@@ -1,10 +1,10 @@
 const nameOptions = "filters"
 
-const setLocalStorage = (data: Array<number>) => {
+const setStorage = (data: Array<number>) => {
   localStorage.setItem(nameOptions, JSON.stringify(data))
 }
 
-const getLocalStorage = (): Array<number> => {
+const getStorage = (): Array<number> => {
   try {
     const data: Array<number> = JSON.parse(
       localStorage.getItem(nameOptions) ?? ""
@@ -15,4 +15,4 @@ const getLocalStorage = (): Array<number> => {
   }
 }
 
-export { getLocalStorage, setLocalStorage }
+export { getStorage, setStorage }
