@@ -8,12 +8,22 @@ const generate = (totalMachines: Array<any>) => {
   let innerData = []
 
   for (const iterator of totalMachines) {
-    if (iterator !== "") {
-      innerData.push(iterator)
+    const textFormat = textParseTrim(iterator)
+    if (textFormat !== "") {
+      innerData.push(textFormat)
     }
   }
 
   return innerData.join("\n")
+}
+
+const randomId = (): string => {
+  const data: Array<number> = []
+  for (let index = 0; index < 3; index++) {
+    const generate = Math.floor(Math.random() * 11)
+    data.push(generate)
+  }
+  return data.join(",")
 }
 
 const iconByState = (stateMachine: string) => {
@@ -41,4 +51,11 @@ const getParseState = (info: any) => {
   return format
 }
 
-export { generate, textParseTrim, getParseState, iconByPlatform, iconByState }
+export {
+  generate,
+  textParseTrim,
+  getParseState,
+  iconByPlatform,
+  iconByState,
+  randomId,
+}

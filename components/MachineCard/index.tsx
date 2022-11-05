@@ -1,8 +1,10 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { IMachineCard } from "./types"
 import { iconByPlatform, iconByState } from "../../utils/methods"
 import { Link } from "../Link"
 import { Icon } from "../Icon"
+import { detailMachine } from "../../utils/definition"
+import { getStorage } from "../../utils/storage"
 import {
   CardLabel,
   CertificationsContainer,
@@ -57,24 +59,20 @@ const MachineCard: React.FC<IMachineCard> = ({
       <>
         <p>Skills:</p>
         <TechniquesContainer>
-          <div>
-            {dataTech.left.map((technique, index) => {
-              return (
-                <li key={technique + " " + index}>
-                  <span>{technique}</span>
-                </li>
-              )
-            })}
-          </div>
-          <div>
-            {dataTech.right.map((technique, index) => {
-              return (
-                <li key={technique + " " + index}>
-                  <span>{technique}</span>
-                </li>
-              )
-            })}
-          </div>
+          <ul>
+            {dataTech.left.map((technique, index) => (
+              <li key={technique + " " + index}>
+                <span>{technique}</span>
+              </li>
+            ))}
+          </ul>
+          <ul>
+            {dataTech.right.map((technique, index) => (
+              <li key={technique + " " + index}>
+                <span>{technique}</span>
+              </li>
+            ))}
+          </ul>
         </TechniquesContainer>
         <CertificationsContainer>
           {certCollection.map((cert, index) => {
@@ -84,6 +82,13 @@ const MachineCard: React.FC<IMachineCard> = ({
       </>
     )
   }
+
+  useEffect(() => {
+    const filterOption = getStorage()
+    if (filterOption.includes(detailMachine)) {
+      setCompress(false)
+    }
+  }, [])
 
   return (
     <Container>

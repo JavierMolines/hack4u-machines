@@ -1,7 +1,10 @@
 import styled from "styled-components"
 
-export const Container = styled.form`
+export const Container = styled.section`
   width: 100%;
+`
+
+export const FilterContainer = styled.form`
   display: grid;
   grid-template-columns: 5% 5% 70% 20%;
   background-color: var(--colorGrayDark);

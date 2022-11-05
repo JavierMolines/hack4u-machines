@@ -1,6 +1,7 @@
 import { IContainerMachines } from "./types"
 import { Container, LabelFound } from "./styles"
 import { MachineCard } from "../MachineCard"
+import { randomId } from "../../utils/methods"
 
 const ContainerMachines: React.FC<IContainerMachines> = ({ machines }) => {
   return machines.length > 0 ? (
@@ -18,7 +19,7 @@ const ContainerMachines: React.FC<IContainerMachines> = ({ machines }) => {
               video={data.video}
               ip={data.ip}
               state={data.state}
-              key={index + data.certification + data.name}
+              key={randomId() + data.name}
             />
           )
         })}

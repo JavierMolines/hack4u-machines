@@ -23,14 +23,16 @@ export const TechniquesContainer = styled.div`
   grid-template-columns: repeat(2, 48%);
   justify-content: space-between;
 
+  & > ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0rem 1rem;
+    padding: 0rem 1rem;
+  }
+
   & > li {
     margin: 0rem;
     padding: 0rem;
-  }
-
-  & > div {
-    display: flex;
-    flex-direction: column;
   }
 `
 
