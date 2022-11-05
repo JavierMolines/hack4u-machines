@@ -3,8 +3,9 @@ import { ApplyChange, Container, GridOptions, OptionFlex } from "./styles"
 import { Icon } from "../Icon"
 import { useEffect, useState } from "react"
 import { optionsFilters } from "../../utils/definition"
+import { getStorage, setStorage } from "../../utils/storage"
 
-const AdvancedFilter: React.FC<IAdvancedFilter> = () => {
+const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
   const dimensionIcon = 15
   const [checks, setChecks] = useState<Array<number>>([])
 
@@ -24,15 +25,15 @@ const AdvancedFilter: React.FC<IAdvancedFilter> = () => {
   const buttonClick = () => {
     if (checks.length === 0) {
       localStorage.clear()
-      return
+    } else {
+      setStorage(checks)
     }
-    localStorage.setItem("filters", JSON.stringify(checks))
+    callback()
   }
 
   useEffect(() => {
     try {
-      const filterText = localStorage.getItem("filters") ?? ""
-      setChecks(JSON.parse(filterText))
+      setChecks(getStorage())
     } catch (error) {}
   }, [])
 
@@ -50,9 +51,7 @@ const AdvancedFilter: React.FC<IAdvancedFilter> = () => {
           </OptionFlex>
         ))}
       </GridOptions>
-      <ApplyChange onClick={buttonClick} selected={checks.length > 0}>
-        Apply
-      </ApplyChange>
+      <ApplyChange onClick={buttonClick}>Apply</ApplyChange>
     </Container>
   )
 }

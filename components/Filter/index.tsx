@@ -3,6 +3,8 @@ import { FormEvent, useContext, useRef, useState } from "react"
 import { MachinesContext } from "../../context/MachineContent"
 import { Icon } from "../Icon/"
 import { AdvancedFilter } from "../AdvancedFilter"
+import { getStorage } from "../../utils/storage"
+import { filterExact, sortHight } from "../../utils/definition"
 
 import {
   ButtonSearch,
@@ -22,7 +24,8 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault()
-    const input = inputFilter.current?.value ?? ""
+    const options = getStorage()
+    const input = inputFilter.current?.value.trim() ?? ""
     if (input === "") {
       callbackShowMachines([])
       return
@@ -34,15 +37,18 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
       const filterApproval = totalMachines.length
 
       for (const iterator of totalMachines) {
-        const regExpTmp = new RegExp(`${iterator}`, "ig")
+        const innerFilter = options.includes(filterExact)
+          ? `^${input.trim()}$`
+          : `${iterator}`
+        const regExpTmp = new RegExp(innerFilter, "ig")
 
         if (
-          regExpTmp.test(box.name) ||
-          regExpTmp.test(box.os) ||
-          regExpTmp.test(box.techniques) ||
-          regExpTmp.test(box.certification) ||
-          regExpTmp.test(box.state) ||
-          regExpTmp.test(box.platform)
+          regExpTmp.test(box.name.trim()) ||
+          regExpTmp.test(box.os.trim()) ||
+          regExpTmp.test(box.techniques.trim()) ||
+          regExpTmp.test(box.certification.trim()) ||
+          regExpTmp.test(box.state.trim()) ||
+          regExpTmp.test(box.platform.trim())
         ) {
           count++
           continue
@@ -58,7 +64,17 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
       }
     })
 
-    callbackShowMachines(filter)
+    if (options.includes(sortHight)) {
+      callbackShowMachines(
+        filter.sort((a, b) => {
+          return (
+            b.techniques.split("\n").length - a.techniques.split("\n").length
+          )
+        })
+      )
+    } else {
+      callbackShowMachines(filter)
+    }
   }
 
   return (
@@ -67,11 +83,9 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
         <ContainerFilter onClick={filterOnClick}>
           <Icon src="/filter.svg" dimension={dimension} />
         </ContainerFilter>
-
         <ContainerSearch>
           <Icon src="/search.svg" dimension={dimension} />
         </ContainerSearch>
-
         <Input
           autoFocus
           type="text"
@@ -82,10 +96,9 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
           name="machineSearch"
           placeholder="Search (filter by) platform, name, so, difficulty, skills."
         />
-
         <ButtonSearch>Search</ButtonSearch>
       </FilterContainer>
-      {showAdvancedFilter && <AdvancedFilter />}
+      {showAdvancedFilter && <AdvancedFilter callback={filterOnClick} />}
     </Container>
   )
 }

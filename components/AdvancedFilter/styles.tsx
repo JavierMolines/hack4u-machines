@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { ISelected } from "./types"
 
 export const Container = styled.div`
   border-radius: 0.5rem;
@@ -36,7 +35,7 @@ export const OptionFlex = styled.div`
   }
 `
 
-export const ApplyChange = styled.button<ISelected>`
+export const ApplyChange = styled.button`
   width: 100px;
   border-radius: 0.5rem;
   color: white;
@@ -44,7 +43,6 @@ export const ApplyChange = styled.button<ISelected>`
   outline: none;
   font-size: 1.1rem;
   padding: 0.5rem 0rem;
-  background-color: ${({ selected }) =>
-    selected ? "var(--colorRedDark)" : "var(--colorGrayLight)"};
-  cursor: ${({ selected }) => (selected ? "pointer" : "default")};
+  background-color: var(--colorRedDark);
+  cursor: pointer;
 `
