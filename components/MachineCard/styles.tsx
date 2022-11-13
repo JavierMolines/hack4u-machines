@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { device } from "../../utils/breakpoints"
 
 export const Container = styled.header`
   font-size: 1rem;
@@ -7,8 +8,12 @@ export const Container = styled.header`
 
 export const CardLabel = styled.div`
   display: grid;
-  grid-template-columns: 20% 10% 10% 10% 15% 15% 5%;
+  grid-template-columns: 33% 33% 33%;
   justify-content: space-between;
+
+  @media ${device.laptop} {
+    grid-template-columns: 20% 10% 10% 10% 15% 15% 5%;
+  }
 `
 
 export const ContainerExpand = styled.div`
@@ -38,9 +43,6 @@ export const TechniquesContainer = styled.div`
 
 export const CertificationsContainer = styled.div`
   border-left: 5px solid red;
-  gap: 0.5rem;
-  display: flex;
-  flex-direction: row;
   margin: 1rem 0rem;
   padding: 0.5rem 0.5rem;
   width: 100%;

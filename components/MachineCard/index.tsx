@@ -5,6 +5,8 @@ import { Link } from "../Link"
 import { Icon } from "../Icon"
 import { detailMachine } from "../../utils/definition"
 import { getStorage } from "../../utils/storage"
+import { useDevice } from "../../hooks/useDevice"
+
 import {
   CardLabel,
   CertificationsContainer,
@@ -26,6 +28,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 }) => {
   const dimension = 20
   const dimensionIcon = 15
+  const { isMobile } = useDevice()
   const [compress, setCompress] = useState(true)
   const certCollection = certification.split("\n")
   const techCollection = techniques.split("\n")
@@ -58,26 +61,35 @@ const MachineCard: React.FC<IMachineCard> = ({
     return (
       <>
         <p>Skills:</p>
-        <TechniquesContainer>
+        {isMobile ? (
           <ul>
-            {dataTech.left.map((technique, index) => (
+            {[...dataTech.right, ...dataTech.left].map((technique, index) => (
               <li key={technique + " " + index}>
                 <span>{technique}</span>
               </li>
             ))}
           </ul>
-          <ul>
-            {dataTech.right.map((technique, index) => (
-              <li key={technique + " " + index}>
-                <span>{technique}</span>
-              </li>
-            ))}
-          </ul>
-        </TechniquesContainer>
+        ) : (
+          <TechniquesContainer>
+            <ul>
+              {dataTech.left.map((technique, index) => (
+                <li key={technique + " " + index}>
+                  <span>{technique}</span>
+                </li>
+              ))}
+            </ul>
+            <ul>
+              {dataTech.right.map((technique, index) => (
+                <li key={technique + " " + index}>
+                  <span>{technique}</span>
+                </li>
+              ))}
+            </ul>
+          </TechniquesContainer>
+        )}
+
         <CertificationsContainer>
-          {certCollection.map((cert, index) => {
-            return <span key={cert + " " + index}>{cert}</span>
-          })}
+          <span>{certCollection.join(" ")}</span>
         </CertificationsContainer>
       </>
     )
@@ -102,18 +114,20 @@ const MachineCard: React.FC<IMachineCard> = ({
         <TextWithIcon>{platformRender()}</TextWithIcon>
 
         <TextWithIcon>
-          <Icon src={`/${iconByPlatform(os)}.svg`} dimension={dimensionIcon} />
-          <p>{os}</p>
-        </TextWithIcon>
-
-        <TextWithIcon>
           <Icon src={`/${iconByState(state)}.svg`} dimension={dimensionIcon} />
           <p>{state}</p>
         </TextWithIcon>
 
         <TextWithIcon>
-          <p>Certify apply {certCollection.length}</p>
+          <Icon src={`/${iconByPlatform(os)}.svg`} dimension={dimensionIcon} />
+          <p>{os}</p>
         </TextWithIcon>
+
+        {!isMobile && (
+          <TextWithIcon>
+            <p>Certify apply {certCollection.length}</p>
+          </TextWithIcon>
+        )}
 
         <TextWithIcon>
           <p>Skill used {techCollection.length}</p>
