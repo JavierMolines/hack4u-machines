@@ -10,6 +10,7 @@ export const Container = styled.main`
 
   & > h1 {
     color: var(--colorRedLight);
+    text-align: center;
   }
 
   & > h2,

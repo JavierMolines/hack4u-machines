@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { device } from "../../utils/breakpoints"
 
 export const Container = styled.div`
   border-radius: 0.5rem;
@@ -13,9 +14,13 @@ export const Container = styled.div`
 export const GridOptions = styled.div`
   width: 100%;
   display: flex;
-  gap: 2rem;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
+
+  @media ${device.tablet} {
+    gap: 2rem;
+    flex-direction: row;
+  }
 `
 
 export const OptionFlex = styled.div`

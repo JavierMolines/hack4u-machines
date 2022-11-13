@@ -12,10 +12,8 @@ Run the development server:
 npm run dev
 ```
 
-# Crear nuevos componentes
-
-Para crear nuevos componentes, utilizar el comando
+To create news component, use the command
 
 ```nodejs
-npx jav-make-component :NAME_COMPONENT: v2
+npm run make :NAME_COMPONENT: v2
 ```
