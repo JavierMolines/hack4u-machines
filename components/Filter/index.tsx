@@ -5,11 +5,14 @@ import { Icon } from "../Icon/"
 import { AdvancedFilter } from "../AdvancedFilter"
 import { getStorage } from "../../utils/storage"
 import { filterExact, sortHight } from "../../utils/definition"
+import { useDevice } from "../../hooks/useDevice"
 
 import {
   ButtonSearch,
   Container,
   ContainerFilter,
+  ContainerMobileIcon,
+  ContainerMobileSearch,
   ContainerSearch,
   FilterContainer,
   Input,
@@ -17,6 +20,7 @@ import {
 
 const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
   const dimension: number = 25
+  const { isMobile } = useDevice()
   const contextMachine = useContext(MachinesContext)
   const inputFilter = useRef<HTMLInputElement>(null)
   const [showAdvancedFilter, setShowAdvancedFilter] = useState<boolean>(false)
@@ -80,24 +84,50 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
   return (
     <Container>
       <FilterContainer autoComplete="off" onSubmit={onSubmit}>
-        <ContainerFilter onClick={filterOnClick}>
-          <Icon src="/filter.svg" dimension={dimension} />
-        </ContainerFilter>
-        <ContainerSearch>
-          <Icon src="/search.svg" dimension={dimension} />
-        </ContainerSearch>
-        <Input
-          autoFocus
-          type="text"
-          aria-autocomplete="none"
-          autoComplete="off"
-          ref={inputFilter}
-          id="machineSearch"
-          name="machineSearch"
-          placeholder="Search (filter by) platform, name, so, difficulty, skills."
-        />
-        <ButtonSearch>Search</ButtonSearch>
+        {isMobile ? (
+          <>
+            <ContainerMobileIcon>
+              <ContainerFilter onClick={filterOnClick}>
+                <Icon src="/filter.svg" dimension={dimension} />
+              </ContainerFilter>
+              <ButtonSearch>Search</ButtonSearch>
+            </ContainerMobileIcon>
+
+            <ContainerMobileSearch>
+              <ContainerSearch>
+                <Icon src="/search.svg" dimension={dimension} />
+              </ContainerSearch>
+              <Input
+                autoFocus
+                type="text"
+                aria-autocomplete="none"
+                autoComplete="off"
+                ref={inputFilter}
+                placeholder="Search (filter by) platform, name, so, difficulty, skills."
+              />
+            </ContainerMobileSearch>
+          </>
+        ) : (
+          <>
+            <ContainerFilter onClick={filterOnClick}>
+              <Icon src="/filter.svg" dimension={dimension} />
+            </ContainerFilter>
+            <ContainerSearch>
+              <Icon src="/search.svg" dimension={dimension} />
+            </ContainerSearch>
+            <Input
+              autoFocus
+              type="text"
+              aria-autocomplete="none"
+              autoComplete="off"
+              ref={inputFilter}
+              placeholder="Search (filter by) platform, name, so, difficulty, skills."
+            />
+            <ButtonSearch>Search</ButtonSearch>
+          </>
+        )}
       </FilterContainer>
+
       {showAdvancedFilter && <AdvancedFilter callback={filterOnClick} />}
     </Container>
   )

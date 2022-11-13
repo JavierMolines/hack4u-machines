@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { device } from "../../utils/breakpoints"
 
 export const Container = styled.section`
   width: 100%;
@@ -6,14 +7,18 @@ export const Container = styled.section`
 
 export const FilterContainer = styled.form`
   display: grid;
-  grid-template-columns: 5% 5% 70% 20%;
+  grid-template-columns: 100%;
   background-color: var(--colorGrayDark);
   border-radius: 0.5rem;
+
+  @media ${device.laptop} {
+    grid-template-columns: 5% 5% 70% 20%;
+  }
 `
 
 export const Input = styled.input`
   font-size: 1.2rem;
-  padding-left: 0.5rem;
+  padding: 0.75rem 0.25rem;
   border: none;
   outline: none;
   background-color: transparent;
@@ -29,6 +34,10 @@ export const Input = styled.input`
 
   ::-ms-input-placeholder {
     color: gray;
+  }
+
+  @media ${device.laptop} {
+    padding: 0rem 0rem 0rem 0.5rem;
   }
 `
 
@@ -58,4 +67,14 @@ export const ContainerFilter = styled(BaseDivFlex)`
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
   cursor: pointer;
+`
+
+export const ContainerMobileIcon = styled.div`
+  display: grid;
+  grid-template-columns: 50% 50%;
+`
+
+export const ContainerMobileSearch = styled.div`
+  display: grid;
+  grid-template-columns: 10% 90%;
 `
