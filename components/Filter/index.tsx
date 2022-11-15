@@ -6,6 +6,7 @@ import { AdvancedFilter } from "../AdvancedFilter"
 import { getStorage } from "../../utils/storage"
 import { filterExact, sortHight } from "../../utils/definition"
 import { useDevice } from "../../hooks/useDevice"
+import { handlerOverflowVertical } from "../../utils/domMethods"
 
 import {
   ButtonSearch,
@@ -28,6 +29,7 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault()
+    handlerOverflowVertical(false)
     const options = getStorage()
     const input = inputFilter.current?.value.trim() ?? ""
     if (input === "") {
