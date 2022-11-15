@@ -1,9 +1,10 @@
+import Link from "next/link"
 import { useState } from "react"
 import { IVerticalMenu } from "./types"
 import { ContainerContent, FixedContainer } from "./styles"
 import { Icon } from "../Icon"
 import { Footer } from "../Footer"
-import Link from "next/link"
+import { handlerOverflowVertical } from "../../utils/domMethods"
 
 const VerticalMenu: React.FC<IVerticalMenu> = () => {
   const [icon, setIcon] = useState<any>({
@@ -24,7 +25,7 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
           }
     )
 
-    document.body.style.overflowY = icon.svg === "menu" ? "hidden" : "visible"
+    handlerOverflowVertical(icon.svg === "menu")
   }
 
   return (
