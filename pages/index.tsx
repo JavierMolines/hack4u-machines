@@ -2,7 +2,6 @@ import type { NextPage } from "next"
 import { useState } from "react"
 import { ContainerMachines } from "../components/ContainerMachines"
 import { Filter } from "../components/Filter"
-import { Footer } from "../components/Footer"
 import { Header } from "../components/Header"
 import { Loading } from "../components/Loading"
 import { PageLayout } from "../components/PageLayout"
@@ -23,7 +22,6 @@ const Home: NextPage = () => {
           <ContainerMachines machines={machinesInView} />
         </>
       )}
-      <Footer />
     </PageLayout>
   )
 }
