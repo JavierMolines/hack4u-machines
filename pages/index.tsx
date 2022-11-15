@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   const [machinesInView, setMachinesInView] = useState<Array<any>>([])
 
   return (
-    <PageLayout title="HTB Machines - Search engine">
+    <PageLayout title="Machines - Search engine">
       <Header totalMachines={machines} />
       {machines.length === 0 ? (
         <Loading />
