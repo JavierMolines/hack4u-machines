@@ -26,7 +26,7 @@ const urlMachines = [
 ]
 
 const optionsFilters = [
-  { id: filterExact, title: "exact search" },
+  // { id: filterExact, title: "exact search" },
   { id: detailMachine, title: "detail machine expand" },
   { id: sortHight, title: "sort by most skills" },
 ]
