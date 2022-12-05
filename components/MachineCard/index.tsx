@@ -107,8 +107,8 @@ const MachineCard: React.FC<IMachineCard> = ({
       <CardLabel>
         <Link target={video} color="var(--colorRedLight)">
           <TextWithIcon>
-            <p>{name}</p>
             <Icon src={`/link.svg`} dimension={dimensionIcon} />
+            <p>{name}</p>
           </TextWithIcon>
         </Link>
 
