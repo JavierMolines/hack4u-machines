@@ -21,6 +21,8 @@ import {
 
 const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
   const dimension: number = 25
+  const inputPlaceHolder =
+    "Filter for anything you want: (Ex: HackTheBox Medium Active Directory OSEP Kerberos)"
   const { isMobile } = useDevice()
   const contextMachine = useContext(MachinesContext)
   const inputFilter = useRef<HTMLInputElement>(null)
@@ -105,7 +107,7 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
                 aria-autocomplete="none"
                 autoComplete="off"
                 ref={inputFilter}
-                placeholder="Search (filter by) platform, name, so, difficulty, skills."
+                placeholder={inputPlaceHolder}
               />
             </ContainerMobileSearch>
           </>
@@ -123,7 +125,7 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
               aria-autocomplete="none"
               autoComplete="off"
               ref={inputFilter}
-              placeholder="Search (filter by) platform, name, so, difficulty, skills."
+              placeholder={inputPlaceHolder}
             />
             <ButtonSearch>Search</ButtonSearch>
           </>
