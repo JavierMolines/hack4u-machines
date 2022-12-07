@@ -1,6 +1,12 @@
 const filterExact = 3403
 const detailMachine = 4309
 const sortHight = 5450
+const highLightFilter = 6489
+
+const storagesKeys = {
+  filterOption: "filters",
+  paramSearchOption: "search",
+}
 
 const mapInfo = {
   htb: "HackTheBox",
@@ -27,6 +33,7 @@ const urlMachines = [
 
 const optionsFilters = [
   // { id: filterExact, title: "exact search" },
+  { id: highLightFilter, title: "highlight search phrase in skill" },
   { id: detailMachine, title: "detail machine expand" },
   { id: sortHight, title: "sort by most skills" },
 ]
@@ -39,4 +46,6 @@ export {
   sortHight,
   filterExact,
   detailMachine,
+  highLightFilter,
+  storagesKeys,
 }

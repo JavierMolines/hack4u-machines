@@ -2,7 +2,7 @@ import { IAdvancedFilter } from "./types"
 import { ApplyChange, Container, GridOptions, OptionFlex } from "./styles"
 import { Icon } from "../Icon"
 import { useEffect, useState } from "react"
-import { optionsFilters } from "../../utils/definition"
+import { optionsFilters, storagesKeys } from "../../utils/definition"
 import { getStorage, setStorage } from "../../utils/storage"
 
 const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
@@ -26,14 +26,14 @@ const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
     if (checks.length === 0) {
       localStorage.clear()
     } else {
-      setStorage(checks)
+      setStorage(storagesKeys.filterOption, checks)
     }
     callback()
   }
 
   useEffect(() => {
     try {
-      setChecks(getStorage())
+      setChecks(getStorage(storagesKeys.filterOption))
     } catch (error) {}
   }, [])
 

@@ -1,9 +1,12 @@
 import { ILoading } from "./types"
-import { Container } from "./styles"
+import { Container, Spinner } from "./styles"
 
 const Loading: React.FC<ILoading> = () => {
-  const example = <p>Loading</p>
-  return <Container>{example}</Container>
+  return (
+    <Container>
+      <Spinner />
+    </Container>
+  )
 }
 
 export { Loading }

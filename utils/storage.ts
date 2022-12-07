@@ -1,14 +1,10 @@
-const nameOptions = "filters"
-
-const setStorage = (data: Array<number>) => {
-  localStorage.setItem(nameOptions, JSON.stringify(data))
+const setStorage = (nameOption: string, data: Array<any>) => {
+  localStorage.setItem(nameOption, JSON.stringify(data))
 }
 
-const getStorage = (): Array<number> => {
+const getStorage = (nameOption: string): Array<any> => {
   try {
-    const data: Array<number> = JSON.parse(
-      localStorage.getItem(nameOptions) ?? ""
-    )
+    const data = JSON.parse(localStorage.getItem(nameOption) ?? "")
     return data
   } catch (error) {
     return []
