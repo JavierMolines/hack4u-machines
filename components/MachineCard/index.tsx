@@ -3,7 +3,11 @@ import { IMachineCard } from "./types"
 import { iconByPlatform, iconByState } from "../../utils/methods"
 import { Link } from "../Link"
 import { Icon } from "../Icon"
-import { detailMachine } from "../../utils/definition"
+import {
+  detailMachine,
+  highLightFilter,
+  storagesKeys,
+} from "../../utils/definition"
 import { getStorage } from "../../utils/storage"
 import { useDevice } from "../../hooks/useDevice"
 
@@ -55,6 +59,30 @@ const MachineCard: React.FC<IMachineCard> = ({
     }
   }
 
+  const generateLabelSkill = (technique: string, index: number) => {
+    const options = getStorage(storagesKeys.filterOption)
+    const searchInputs = getStorage(storagesKeys.paramSearchOption)
+
+    if (options.includes(highLightFilter)) {
+      for (const optionInput of searchInputs) {
+        const regExpTmp = new RegExp(optionInput, "ig")
+        if (regExpTmp.test(technique)) {
+          return (
+            <li key={technique + " " + index}>
+              <span style={{ color: "#e6e600" }}>{technique}</span>
+            </li>
+          )
+        }
+      }
+    }
+
+    return (
+      <li key={technique + " " + index}>
+        <span>{technique}</span>
+      </li>
+    )
+  }
+
   const tabContentExpand = () => {
     if (compress) return <></>
 
@@ -63,27 +91,21 @@ const MachineCard: React.FC<IMachineCard> = ({
         <p>Skills:</p>
         {isMobile ? (
           <ul>
-            {[...dataTech.right, ...dataTech.left].map((technique, index) => (
-              <li key={technique + " " + index}>
-                <span>{technique}</span>
-              </li>
-            ))}
+            {[...dataTech.right, ...dataTech.left].map((technique, index) =>
+              generateLabelSkill(technique, index)
+            )}
           </ul>
         ) : (
           <TechniquesContainer>
             <ul>
-              {dataTech.left.map((technique, index) => (
-                <li key={technique + " " + index}>
-                  <span>{technique}</span>
-                </li>
-              ))}
+              {dataTech.left.map((technique, index) =>
+                generateLabelSkill(technique, index)
+              )}
             </ul>
             <ul>
-              {dataTech.right.map((technique, index) => (
-                <li key={technique + " " + index}>
-                  <span>{technique}</span>
-                </li>
-              ))}
+              {dataTech.right.map((technique, index) =>
+                generateLabelSkill(technique, index)
+              )}
             </ul>
           </TechniquesContainer>
         )}
@@ -96,7 +118,7 @@ const MachineCard: React.FC<IMachineCard> = ({
   }
 
   useEffect(() => {
-    const filterOption = getStorage()
+    const filterOption = getStorage(storagesKeys.filterOption)
     if (filterOption.includes(detailMachine)) {
       setCompress(false)
     }

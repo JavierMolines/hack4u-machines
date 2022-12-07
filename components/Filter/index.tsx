@@ -3,8 +3,8 @@ import { FormEvent, useContext, useRef, useState } from "react"
 import { MachinesContext } from "../../context/MachineContent"
 import { Icon } from "../Icon/"
 import { AdvancedFilter } from "../AdvancedFilter"
-import { getStorage } from "../../utils/storage"
-import { filterExact, sortHight } from "../../utils/definition"
+import { getStorage, setStorage } from "../../utils/storage"
+import { filterExact, sortHight, storagesKeys } from "../../utils/definition"
 import { useDevice } from "../../hooks/useDevice"
 import { handlerOverflowVertical } from "../../utils/domMethods"
 
@@ -32,8 +32,9 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
   const onSubmit = (event: FormEvent) => {
     event.preventDefault()
     handlerOverflowVertical(false)
-    const options = getStorage()
+    const options = getStorage(storagesKeys.filterOption)
     const input = inputFilter.current?.value.trim() ?? ""
+
     if (input === "") {
       callbackShowMachines([])
       return
@@ -42,6 +43,7 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
     const filter = contextMachine.machines.filter((box) => {
       let count = 0
       const totalMachines = input.split(" ")
+      setStorage(storagesKeys.paramSearchOption, totalMachines)
       const filterApproval = totalMachines.length
 
       for (const iterator of totalMachines) {
