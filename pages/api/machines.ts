@@ -13,6 +13,10 @@ export default async function handler(
   const childNodesRequire = 10
   const regExpIp = /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/i
   const regExpVideo = /https:\/\/www.youtube.com/i
+  const totalMachines = {
+    htb: 0,
+    vuln: 0,
+  }
 
   for (const machine of urlMachines) {
     const response = await axios.get(machine.url)
@@ -49,6 +53,7 @@ export default async function handler(
             dataMachine.certification = textParseTrim(info.childNodes[6])
             dataMachine.ip = ip
             dataMachine.video = video
+            totalMachines.htb++
           } else {
             continue
           }
@@ -67,6 +72,7 @@ export default async function handler(
             dataMachine.certification = certification
             dataMachine.ip = textParseTrim(info.childNodes[6])
             dataMachine.video = video
+            totalMachines.vuln++
           } else {
             continue
           }
@@ -79,5 +85,6 @@ export default async function handler(
 
   res.status(200).json({
     newData,
+    totalMachines,
   })
 }
