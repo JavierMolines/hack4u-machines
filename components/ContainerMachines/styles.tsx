@@ -8,7 +8,7 @@ export const Container = styled.main`
 `
 
 export const LabelFound = styled.p`
-  padding: 0rem 0.5rem;
+  padding: 0rem 0.25rem;
   width: 99.5%;
   text-align: left;
 `
