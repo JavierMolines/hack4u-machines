@@ -6,7 +6,7 @@ import { optionsFilters, storagesKeys } from "../../utils/definition"
 import { getStorage, setStorage } from "../../utils/storage"
 
 const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
-  const dimensionIcon = 15
+  const dimensionIcon = 17
   const [checks, setChecks] = useState<Array<number>>([])
 
   const defineFigure = (index: number) => {

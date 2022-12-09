@@ -3,13 +3,14 @@ import { IMachineCard } from "./types"
 import { iconByPlatform, iconByState } from "../../utils/methods"
 import { Link } from "../Link"
 import { Icon } from "../Icon"
+import { getStorage } from "../../utils/storage"
+import { useDevice } from "../../hooks/useDevice"
+
 import {
   detailMachine,
   highLightFilter,
   storagesKeys,
 } from "../../utils/definition"
-import { getStorage } from "../../utils/storage"
-import { useDevice } from "../../hooks/useDevice"
 
 import {
   CardLabel,
@@ -148,12 +149,12 @@ const MachineCard: React.FC<IMachineCard> = ({
 
         {!isMobile && (
           <TextWithIcon>
-            <p>Certify apply {certCollection.length}</p>
+            <p>Certifications {certCollection.length}</p>
           </TextWithIcon>
         )}
 
         <TextWithIcon>
-          <p>Skill used {techCollection.length}</p>
+          <p>Skills used {techCollection.length}</p>
         </TextWithIcon>
 
         <ContainerExpand style={{ cursor: "pointer" }} onClick={handlerClick}>

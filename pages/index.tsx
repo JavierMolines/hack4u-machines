@@ -8,12 +8,12 @@ import { PageLayout } from "../components/PageLayout"
 import { useMachines } from "../hooks/useMachines"
 
 const Home: NextPage = () => {
-  const { machines } = useMachines()
+  const { machines, mapTotalMachines } = useMachines()
   const [machinesInView, setMachinesInView] = useState<Array<any>>([])
 
   return (
     <PageLayout title="Machines - Search engine">
-      <Header totalMachines={machines} />
+      <Header totalMachines={mapTotalMachines} />
       {machines.length === 0 ? (
         <Loading />
       ) : (

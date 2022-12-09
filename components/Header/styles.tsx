@@ -1,7 +1,8 @@
 import styled from "styled-components"
+import { device } from "../../utils/breakpoints"
 
 export const Container = styled.main`
-  padding: 2.5rem 0rem;
+  padding: 1.5rem 0rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,14 +19,32 @@ export const Container = styled.main`
     padding: 0rem;
     margin: 0rem;
   }
+
+  @media ${device.tablet} {
+    padding: 2rem 0rem;
+  }
 `
 
 export const PlatformContainer = styled.div`
-  display: flex;
-  gap: 3rem;
+  display: grid;
+  width: 80%;
+  grid-template-columns: 50% 50%;
 
   & > p {
-    margin: 0rem;
+    text-align: center;
+    margin: 0.25rem 0rem;
     padding: 0rem;
+  }
+
+  & > :nth-child(3) {
+    grid-column: 1 / 3;
+  }
+
+  @media ${device.tablet} {
+    width: 100%;
+    grid-template-columns: repeat(3, auto);
+    & > :nth-child(3) {
+      grid-column: auto;
+    }
   }
 `
