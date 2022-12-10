@@ -3,7 +3,7 @@ import { FormEvent, useContext, useRef, useState } from "react"
 import { MachinesContext } from "../../context/MachineContent"
 import { Icon } from "../Icon/"
 import { AdvancedFilter } from "../AdvancedFilter"
-import { getStorage, setStorage } from "../../utils/storage"
+import { getStorage, removeStorage, setStorage } from "../../utils/storage"
 import { filterExact, sortHight, storagesKeys } from "../../utils/definition"
 import { useDevice } from "../../hooks/useDevice"
 import { handlerOverflowVertical } from "../../utils/domMethods"
@@ -36,6 +36,7 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
     const input = inputFilter.current?.value.trim() ?? ""
 
     if (input === "") {
+      removeStorage(storagesKeys.paramSearchOption)
       callbackShowMachines([])
       return
     }
