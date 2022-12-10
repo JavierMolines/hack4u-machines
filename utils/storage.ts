@@ -2,6 +2,10 @@ const setStorage = (nameOption: string, data: Array<any>) => {
   localStorage.setItem(nameOption, JSON.stringify(data))
 }
 
+const removeStorage = (nameOption: string) => {
+  localStorage.removeItem(nameOption)
+}
+
 const getStorage = (nameOption: string): Array<any> => {
   try {
     const data = JSON.parse(localStorage.getItem(nameOption) ?? "")
@@ -11,4 +15,4 @@ const getStorage = (nameOption: string): Array<any> => {
   }
 }
 
-export { getStorage, setStorage }
+export { getStorage, setStorage, removeStorage }

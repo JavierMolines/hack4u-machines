@@ -2,8 +2,24 @@ import { IContainerMachines } from "./types"
 import { Container, LabelFound } from "./styles"
 import { MachineCard } from "../MachineCard"
 import { randomId } from "../../utils/methods"
+import { getStorage } from "../../utils/storage"
+import { storagesKeys } from "../../utils/definition"
 
 const ContainerMachines: React.FC<IContainerMachines> = ({ machines }) => {
+  const searchInputParam = getStorage(storagesKeys.paramSearchOption)
+
+  const handlerNoMachines = () => {
+    if (searchInputParam.length === 0) {
+      return <></>
+    }
+
+    return (
+      <LabelFound>
+        Not machines found from: {searchInputParam.join(" ")}
+      </LabelFound>
+    )
+  }
+
   return machines.length > 0 ? (
     <>
       <LabelFound>Machines found {machines.length}</LabelFound>
@@ -26,7 +42,7 @@ const ContainerMachines: React.FC<IContainerMachines> = ({ machines }) => {
       </Container>
     </>
   ) : (
-    <></>
+    <>{handlerNoMachines()}</>
   )
 }
 
