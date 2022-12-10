@@ -10,6 +10,7 @@ export const Container = styled.main`
   gap: 1rem;
 
   & > h1 {
+    text-shadow: 0px 0px 10px #000000;
     color: var(--colorRedLight);
     text-align: center;
   }
