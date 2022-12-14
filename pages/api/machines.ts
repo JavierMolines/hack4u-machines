@@ -9,13 +9,15 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  let currentVulnerability = ""
+  const mapping: any = {}
   const newData: any = []
-  const childNodesRequire = 10
   const regExpIp = /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/i
   const regExpVideo = /https:\/\/www.youtube.com/i
   const totalMachines = {
     htb: 0,
     vuln: 0,
+    swigger: 0,
   }
 
   for (const machine of urlMachines) {
@@ -37,6 +39,7 @@ export default async function handler(
           video: "",
         }
 
+        const childNodesRequire = machine.platform === mapInfo.swigger ? 7 : 10
         if (total !== childNodesRequire) continue
 
         if (machine.platform === mapInfo.htb) {
@@ -54,10 +57,9 @@ export default async function handler(
             dataMachine.ip = ip
             dataMachine.video = video
             totalMachines.htb++
-          } else {
-            continue
+            newData.push(dataMachine)
           }
-        } else {
+        } else if (machine.platform === mapInfo.vuln) {
           const techniques = generate(info.childNodes[4].childNodes)
           const certification = generate(info.childNodes[5].childNodes)
           const video = textParseTrim(info.childNodes[7])
@@ -73,13 +75,45 @@ export default async function handler(
             dataMachine.ip = textParseTrim(info.childNodes[6])
             dataMachine.video = video
             totalMachines.vuln++
-          } else {
-            continue
+            newData.push(dataMachine)
+          }
+        } else if (machine.platform === mapInfo.swigger) {
+          const vulnerability = info.childNodes[1].textContent.trim()
+
+          if (vulnerability !== "" && vulnerability !== "Vulnerabilidad") {
+            mapping[vulnerability] = {
+              platform: mapInfo.swigger,
+              skills: [],
+              writeUp: info.childNodes[3].textContent.trim(),
+              certs: info.childNodes[4].textContent.trim(),
+            }
+            currentVulnerability = vulnerability
+          }
+
+          if (currentVulnerability !== "") {
+            mapping[currentVulnerability]["skills"].push(
+              info.childNodes[2].textContent.trim()
+            )
           }
         }
-
-        newData.push(dataMachine)
       }
+    }
+  }
+
+  for (const relation in mapping) {
+    const { skills, certs, writeUp, platform } = mapping[relation]
+    if (regExpVideo.test(writeUp)) {
+      newData.push({
+        platform,
+        name: relation,
+        techniques: skills.join("\n"),
+        certification: certs,
+        video: writeUp,
+        ip: "",
+        os: "",
+        state: "",
+      })
+      totalMachines.swigger++
     }
   }
 

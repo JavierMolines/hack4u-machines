@@ -10,3 +10,7 @@ export interface IMachineCard {
   video: string
   platform: string
 }
+
+export interface IContainerPlatform {
+  platform: string
+}
