@@ -9,6 +9,7 @@ import { useDevice } from "../../hooks/useDevice"
 import {
   detailMachine,
   highLightFilter,
+  mapInfo,
   storagesKeys,
 } from "../../utils/definition"
 
@@ -49,14 +50,14 @@ const MachineCard: React.FC<IMachineCard> = ({
   }
 
   const platformRender = () => {
-    if (platform === "HackTheBox") {
-      return <p>{platform}</p>
-    } else {
+    if (platform === mapInfo.vuln) {
       return (
         <Link target={ip} color="#66ccff">
           {platform}
         </Link>
       )
+    } else {
+      return <p>{platform}</p>
     }
   }
 
@@ -82,6 +83,32 @@ const MachineCard: React.FC<IMachineCard> = ({
         <span>{technique}</span>
       </li>
     )
+  }
+
+  const renderDifficult = () => {
+    if (state === "") {
+      return <></>
+    } else {
+      return (
+        <TextWithIcon>
+          <Icon src={`/${iconByState(state)}.svg`} dimension={dimensionIcon} />
+          <p>{state}</p>
+        </TextWithIcon>
+      )
+    }
+  }
+
+  const renderOperativeSystem = () => {
+    if (os === "") {
+      return <></>
+    } else {
+      return (
+        <TextWithIcon>
+          <Icon src={`/${iconByPlatform(os)}.svg`} dimension={dimensionIcon} />
+          <p>{os}</p>
+        </TextWithIcon>
+      )
+    }
   }
 
   const tabContentExpand = () => {
@@ -127,7 +154,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 
   return (
     <Container>
-      <CardLabel>
+      <CardLabel platform={platform}>
         <Link target={video} color="var(--colorRedLight)">
           <TextWithIcon>
             {!isMobile && <Icon src={`/link.svg`} dimension={dimensionIcon} />}
@@ -137,15 +164,9 @@ const MachineCard: React.FC<IMachineCard> = ({
 
         <TextWithIcon>{platformRender()}</TextWithIcon>
 
-        <TextWithIcon>
-          <Icon src={`/${iconByState(state)}.svg`} dimension={dimensionIcon} />
-          <p>{state}</p>
-        </TextWithIcon>
+        {renderDifficult()}
 
-        <TextWithIcon>
-          <Icon src={`/${iconByPlatform(os)}.svg`} dimension={dimensionIcon} />
-          <p>{os}</p>
-        </TextWithIcon>
+        {renderOperativeSystem()}
 
         {!isMobile && (
           <TextWithIcon>

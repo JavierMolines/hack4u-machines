@@ -3,6 +3,7 @@
 interface IMapTotalMachines {
   htb: number
   vuln: number
+  swigger: number
 }
 
 export interface IHeader {

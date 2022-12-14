@@ -1,18 +1,25 @@
 import styled from "styled-components"
 import { device } from "../../utils/breakpoints"
+import { mapInfo } from "../../utils/definition"
+import { IContainerPlatform } from "./types"
 
 export const Container = styled.header`
   font-size: 1rem;
   border-bottom: 1px white solid;
 `
 
-export const CardLabel = styled.div`
+export const CardLabel = styled.div<IContainerPlatform>`
   display: grid;
-  grid-template-columns: 33% 33% 33%;
   justify-content: space-between;
 
+  grid-template-columns: ${({ platform }) =>
+    platform === mapInfo.swigger ? "70% 30%" : "33% 33% 33%"};
+
   @media ${device.laptop} {
-    grid-template-columns: 20% 10% 10% 10% 15% 15% 5%;
+    grid-template-columns: ${({ platform }) =>
+      platform === mapInfo.swigger
+        ? "30% 25% 15% 15% 5%"
+        : "20% 10% 10% 10% 15% 15% 5%"};
   }
 `
 

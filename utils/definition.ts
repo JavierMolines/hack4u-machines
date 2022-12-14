@@ -3,6 +3,9 @@ const detailMachine = 4309
 const sortHight = 5450
 const highLightFilter = 6489
 
+const urlBase =
+  "https://docs.google.com/spreadsheets/u/0/d/1dzvaGlT_0xnT-PGO27Z_4prHgA8PHIpErmoWdlUrSoA/gviz/tq?tqx=out:html"
+
 const storagesKeys = {
   filterOption: "filters",
   paramSearchOption: "search",
@@ -11,6 +14,7 @@ const storagesKeys = {
 const mapInfo = {
   htb: "HackTheBox",
   vuln: "VulnHub",
+  swigger: "PortSwigger",
 }
 
 const mappingOfState: any = {
@@ -22,12 +26,16 @@ const mappingOfState: any = {
 
 const urlMachines = [
   {
+    platform: mapInfo.swigger,
+    url: `${urlBase}&gid=680381051`,
+  },
+  {
     platform: mapInfo.vuln,
-    url: "https://docs.google.com/spreadsheets/u/0/d/1dzvaGlT_0xnT-PGO27Z_4prHgA8PHIpErmoWdlUrSoA/gviz/tq?tqx=out:html&gid=810933541",
+    url: `${urlBase}&gid=810933541`,
   },
   {
     platform: mapInfo.htb,
-    url: "https://docs.google.com/spreadsheets/u/0/d/1dzvaGlT_0xnT-PGO27Z_4prHgA8PHIpErmoWdlUrSoA/gviz/tq?tqx=out:html",
+    url: `${urlBase}`,
   },
 ]
 

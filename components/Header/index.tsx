@@ -9,7 +9,7 @@ const Header: React.FC<IHeader> = ({ totalMachines }) => {
       <PlatformContainer>
         <p>HackTheBox: {totalMachines.htb ?? 0}</p>
         <p>VulnHub: {totalMachines.vuln ?? 0}</p>
-        <p>PortSwigger: 0</p>
+        <p>PortSwigger: {totalMachines.swigger ?? 0}</p>
       </PlatformContainer>
     </Container>
   )
