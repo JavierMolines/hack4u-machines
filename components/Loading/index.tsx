@@ -1,5 +1,5 @@
 import { ILoading } from "./types"
-import { Container, Spinner } from "./styles"
+import { CircleRed, CircleWhite, Container, Spinner } from "./styles"
 import { useEffect } from "react"
 import { removeStorage } from "../../utils/storage"
 import { storagesKeys } from "../../utils/definition"
@@ -11,7 +11,10 @@ const Loading: React.FC<ILoading> = () => {
 
   return (
     <Container>
-      <Spinner />
+      <Spinner>
+        <CircleRed />
+        <CircleWhite />
+      </Spinner>
     </Container>
   )
 }
