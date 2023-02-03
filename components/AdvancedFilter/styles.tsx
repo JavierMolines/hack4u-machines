@@ -51,3 +51,18 @@ export const ApplyChange = styled.button`
   background-color: var(--colorRedDark);
   cursor: pointer;
 `
+
+export const MultipleOptions = styled.div`
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+
+  @media ${device.tablet} {
+    gap: 0.5rem;
+    margin-top: 0rem;
+    justify-content: right;
+  }
+`
