@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { device } from "../../utils/breakpoints"
+import { ICountFilterOptions } from "./types"
 
 export const Container = styled.section`
   width: 100%;
@@ -60,7 +61,34 @@ const BaseDivFlex = styled.div`
   align-items: center;
 `
 
-export const ContainerSearch = styled(BaseDivFlex)``
+// TODO: Improve css implementation
+export const ContainerSearch = styled(BaseDivFlex)<ICountFilterOptions>`
+  ${({ totalOptions }) =>
+    totalOptions === 0
+      ? ""
+      : `position: relative;
+  ::after {
+    padding: 0px;
+    top: 5px;
+    right: -1%;
+    position: absolute;
+    color: gold;
+    content: "${totalOptions}";
+    text-align: center;
+    font-size: 15px;
+
+    @media ${device.tablet} {
+      top: 15px;
+      right: 15%;
+    }
+
+    @media ${device.laptop} {
+      top: 15px;
+      right: 5%;
+    }
+
+  }`};
+`
 
 export const ContainerFilter = styled(BaseDivFlex)`
   background-color: var(--colorRedDark);
