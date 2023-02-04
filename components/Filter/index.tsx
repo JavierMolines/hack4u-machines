@@ -1,5 +1,5 @@
 import { IFilter } from "./types"
-import { FormEvent, useContext, useRef, useState } from "react"
+import { FormEvent, useContext, useEffect, useRef, useState } from "react"
 import { MachinesContext } from "../../context/MachineContent"
 import { Icon } from "../Icon/"
 import { AdvancedFilter } from "../AdvancedFilter"
@@ -27,7 +27,18 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
   const contextMachine = useContext(MachinesContext)
   const inputFilter = useRef<HTMLInputElement>(null)
   const [showAdvancedFilter, setShowAdvancedFilter] = useState<boolean>(false)
-  const filterOnClick = () => setShowAdvancedFilter(!showAdvancedFilter)
+  const [totalSearchOption, setTotalSearchOption] = useState(0)
+
+  const refreshSearchOption = () => {
+    try {
+      setTotalSearchOption(getStorage(storagesKeys.filterOption).length)
+    } catch (error) {}
+  }
+
+  const filterOnClick = () => {
+    setShowAdvancedFilter(!showAdvancedFilter)
+    refreshSearchOption()
+  }
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault()
@@ -88,6 +99,10 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
     }
   }
 
+  useEffect(() => {
+    refreshSearchOption()
+  }, [])
+
   return (
     <Container>
       <FilterContainer autoComplete="off" onSubmit={onSubmit}>
@@ -101,7 +116,7 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
             </ContainerMobileIcon>
 
             <ContainerMobileSearch>
-              <ContainerSearch>
+              <ContainerSearch totalOptions={totalSearchOption}>
                 <Icon src="/search.svg" dimension={dimension} />
               </ContainerSearch>
               <Input
@@ -119,7 +134,7 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
             <ContainerFilter onClick={filterOnClick}>
               <Icon src="/filter.svg" dimension={dimension} />
             </ContainerFilter>
-            <ContainerSearch>
+            <ContainerSearch totalOptions={totalSearchOption}>
               <Icon src="/search.svg" dimension={dimension} />
             </ContainerSearch>
             <Input

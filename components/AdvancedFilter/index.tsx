@@ -1,9 +1,16 @@
 import { IAdvancedFilter } from "./types"
-import { ApplyChange, Container, GridOptions, OptionFlex } from "./styles"
 import { Icon } from "../Icon"
 import { useEffect, useState } from "react"
 import { optionsFilters, storagesKeys } from "../../utils/definition"
 import { getStorage, setStorage } from "../../utils/storage"
+
+import {
+  ApplyChange,
+  Container,
+  GridOptions,
+  MultipleOptions,
+  OptionFlex,
+} from "./styles"
 
 const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
   const dimensionIcon = 17
@@ -14,21 +21,34 @@ const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
     return isCheck ? "squareCheck" : "square"
   }
 
+  const buttonActions = {
+    click: () => {
+      if (checks.length === 0) {
+        localStorage.clear()
+      } else {
+        setStorage(storagesKeys.filterOption, checks)
+      }
+      callback()
+    },
+    clear: () => {
+      localStorage.clear()
+      callback()
+    },
+    all: () => {
+      setStorage(
+        storagesKeys.filterOption,
+        optionsFilters.map((data) => data.id)
+      )
+      callback()
+    },
+  }
+
   const handlerOptionClick = (index: number) => {
     if (checks.includes(index)) {
       setChecks(checks.filter((data: number) => index !== data))
     } else {
       setChecks([...checks, index])
     }
-  }
-
-  const buttonClick = () => {
-    if (checks.length === 0) {
-      localStorage.clear()
-    } else {
-      setStorage(storagesKeys.filterOption, checks)
-    }
-    callback()
   }
 
   useEffect(() => {
@@ -51,7 +71,12 @@ const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
           </OptionFlex>
         ))}
       </GridOptions>
-      <ApplyChange onClick={buttonClick}>Apply</ApplyChange>
+
+      <MultipleOptions>
+        <ApplyChange onClick={buttonActions.clear}>Clear</ApplyChange>
+        <ApplyChange onClick={buttonActions.all}>Mark All</ApplyChange>
+        <ApplyChange onClick={buttonActions.click}>Apply</ApplyChange>
+      </MultipleOptions>
     </Container>
   )
 }

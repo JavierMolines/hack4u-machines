@@ -3,3 +3,7 @@
 export interface IFilter {
   callbackShowMachines: Function
 }
+
+export interface ICountFilterOptions {
+  totalOptions?: Number
+}
