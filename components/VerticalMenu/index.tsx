@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import Link from "next/link"
 import { useState } from "react"
 import { IVerticalMenu } from "./types"
@@ -39,17 +40,13 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
           visibility: icon.display,
         }}
       >
-        <Link href="/">
-          <a>
-            <h2>Machines</h2>
-          </a>
-        </Link>
+        <a href="/">
+          <h2>Machines</h2>
+        </a>
 
-        <Link href="/shortcuts">
-          <a>
-            <h2>Shortcuts</h2>
-          </a>
-        </Link>
+        <a href="/shortcuts">
+          <h2>Shortcuts</h2>
+        </a>
 
         <Link href="https://hack4u.io/conocenos/">
           <a>
