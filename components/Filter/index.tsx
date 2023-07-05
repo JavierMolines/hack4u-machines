@@ -42,6 +42,7 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault()
+    sessionStorage.setItem("shortcutTarget", "-1")
     handlerOverflowVertical(false)
     const options = getStorage(storagesKeys.filterOption)
     const input = inputFilter.current?.value.trim() ?? ""
@@ -109,7 +110,10 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
         {isMobile ? (
           <>
             <ContainerMobileIcon>
-              <ContainerFilter onClick={filterOnClick}>
+              <ContainerFilter
+                id="machinesButtonFilter"
+                onClick={filterOnClick}
+              >
                 <Icon src="/filter.svg" dimension={dimension} />
               </ContainerFilter>
               <ButtonSearch>Search</ButtonSearch>
@@ -120,6 +124,7 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
                 <Icon src="/search.svg" dimension={dimension} />
               </ContainerSearch>
               <Input
+                id="machinesButtonSearch"
                 autoFocus
                 type="text"
                 aria-autocomplete="none"
@@ -131,13 +136,14 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
           </>
         ) : (
           <>
-            <ContainerFilter onClick={filterOnClick}>
+            <ContainerFilter id="machinesButtonFilter" onClick={filterOnClick}>
               <Icon src="/filter.svg" dimension={dimension} />
             </ContainerFilter>
             <ContainerSearch totalOptions={totalSearchOption}>
               <Icon src="/search.svg" dimension={dimension} />
             </ContainerSearch>
             <Input
+              id="machinesButtonSearch"
               autoFocus
               type="text"
               aria-autocomplete="none"

@@ -1,0 +1,8 @@
+- Focus input search
+- Toggle filter search
+    * Toggle clear button
+    * Toggle mark all button
+    * Toggle apply button
+- Click button search
+- Focus by number items list result
+    * Toggle view item list focus

@@ -6,8 +6,10 @@ import { Header } from "../components/Header"
 import { Loading } from "../components/Loading"
 import { PageLayout } from "../components/PageLayout"
 import { useMachines } from "../hooks/useMachines"
+import { useShortcuts } from "../hooks/useShortcuts"
 
 const Home: NextPage = () => {
+  useShortcuts()
   const { machines, mapTotalMachines } = useMachines()
   const [machinesInView, setMachinesInView] = useState<Array<any>>([])
 
