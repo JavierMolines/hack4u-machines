@@ -5,7 +5,10 @@ import { IContainerPlatform } from "./types"
 
 export const Container = styled.header`
   font-size: 1rem;
-  border-bottom: 1px white solid;
+  border-bottom: 1px #808080 solid;
+  border-top: 1px transparent solid;
+  border-right: 1px transparent solid;
+  border-left: 1px transparent solid;
 `
 
 export const CardLabel = styled.div<IContainerPlatform>`

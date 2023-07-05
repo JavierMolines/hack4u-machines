@@ -34,6 +34,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 }) => {
   const dimension = 20
   const dimensionIcon = 15
+  const identifier = `machineItem${name}${platform}`
   const { isMobile } = useDevice()
   const [compress, setCompress] = useState(true)
   const certCollection = certification.split("\n")
@@ -153,9 +154,13 @@ const MachineCard: React.FC<IMachineCard> = ({
   }, [])
 
   return (
-    <Container>
+    <Container className="machineItem" id={identifier}>
       <CardLabel platform={platform}>
-        <Link target={video} color="var(--colorRedLight)">
+        <Link
+          id={identifier + "youtube"}
+          target={video}
+          color="var(--colorRedLight)"
+        >
           <TextWithIcon>
             {!isMobile && <Icon src={`/link.svg`} dimension={dimensionIcon} />}
             <p>{name}</p>
@@ -178,7 +183,11 @@ const MachineCard: React.FC<IMachineCard> = ({
           <p>Skills used {techCollection.length}</p>
         </TextWithIcon>
 
-        <ContainerExpand style={{ cursor: "pointer" }} onClick={handlerClick}>
+        <ContainerExpand
+          id={`${identifier}button`}
+          style={{ cursor: "pointer" }}
+          onClick={handlerClick}
+        >
           <Icon src={iconArrowName} dimension={dimension} />
         </ContainerExpand>
       </CardLabel>

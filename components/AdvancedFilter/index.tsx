@@ -73,9 +73,15 @@ const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
       </GridOptions>
 
       <MultipleOptions>
-        <ApplyChange onClick={buttonActions.clear}>Clear</ApplyChange>
-        <ApplyChange onClick={buttonActions.all}>Mark All</ApplyChange>
-        <ApplyChange onClick={buttonActions.click}>Apply</ApplyChange>
+        <ApplyChange id="advancedFilterOption1" onClick={buttonActions.clear}>
+          Clear
+        </ApplyChange>
+        <ApplyChange id="advancedFilterOption2" onClick={buttonActions.all}>
+          Mark All
+        </ApplyChange>
+        <ApplyChange id="advancedFilterOption3" onClick={buttonActions.click}>
+          Apply
+        </ApplyChange>
       </MultipleOptions>
     </Container>
   )

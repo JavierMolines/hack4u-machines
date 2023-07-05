@@ -5,4 +5,5 @@ export interface ILink {
   children: ReactNode
   target: string
   color: string
+  id?: string
 }
