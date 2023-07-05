@@ -45,6 +45,12 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
           </a>
         </Link>
 
+        <Link href="/shortcuts">
+          <a>
+            <h2>Shortcuts</h2>
+          </a>
+        </Link>
+
         <Link href="https://hack4u.io/conocenos/">
           <a>
             <h2>About</h2>
