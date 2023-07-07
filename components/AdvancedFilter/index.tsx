@@ -65,6 +65,7 @@ const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
             <p>{option.title}</p>
             <Icon
               click={() => handlerOptionClick(option.id)}
+              id={`advancedFilterOption${option.id}`}
               src={`/${defineFigure(option.id)}.svg`}
               dimension={dimensionIcon}
             />
@@ -73,13 +74,19 @@ const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
       </GridOptions>
 
       <MultipleOptions>
-        <ApplyChange id="advancedFilterOption1" onClick={buttonActions.clear}>
+        <ApplyChange
+          id="advancedFilterButtonClear"
+          onClick={buttonActions.clear}
+        >
           Clear
         </ApplyChange>
-        <ApplyChange id="advancedFilterOption2" onClick={buttonActions.all}>
+        <ApplyChange id="advancedFilterButtonAll" onClick={buttonActions.all}>
           Mark All
         </ApplyChange>
-        <ApplyChange id="advancedFilterOption3" onClick={buttonActions.click}>
+        <ApplyChange
+          id="advancedFilterButtonApply"
+          onClick={buttonActions.click}
+        >
           Apply
         </ApplyChange>
       </MultipleOptions>
