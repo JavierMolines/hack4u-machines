@@ -6,6 +6,9 @@ const Shortcuts: NextPage = () => {
     <PageLayout title="Machines - Shortcuts">
       <main
         style={{
+          margin: "3rem 0rem 1rem 0rem",
+          padding: "0rem 3rem",
+          border: "1px solid #4d4d4d",
           maxWidth: "75ch",
         }}
       >
@@ -14,15 +17,9 @@ const Shortcuts: NextPage = () => {
             textAlign: "center",
           }}
         >
-          <h1
-            style={{
-              marginTop: "4rem",
-            }}
-          >
-            Integrated keyboard shortcuts
-          </h1>
+          <h1 style={{}}>Integrated keyboard shortcuts</h1>
           <p>For those who always love to have their hands on the keyboard.</p>
-          <h2>IS CASE SENSITIVE</h2>
+          <h2>NOT CASE SENSITIVE</h2>
         </div>
 
         <h2>Navigation</h2>
@@ -33,7 +30,7 @@ const Shortcuts: NextPage = () => {
           }}
         >
           <h3>Ctrl + s</h3>
-          <p>moves you to the machine search bar.</p>
+          <p>Moves you to the machine search bar.</p>
 
           <h3>Ctrl + ,</h3>
           <p>Select an item down in the list of machines.</p>
@@ -73,6 +70,15 @@ const Shortcuts: NextPage = () => {
 
             <h3>Ctrl + 3</h3>
             <p>Select the `Apply` option.</p>
+
+            <h3>Shift + q</h3>
+            <p>Select the first option box</p>
+
+            <h3>Shift + w</h3>
+            <p>Select the second option box</p>
+
+            <h3>Shift + e</h3>
+            <p>Select the third option box</p>
           </div>
         </div>
       </main>
