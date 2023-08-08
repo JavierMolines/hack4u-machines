@@ -67,10 +67,10 @@ export const ContainerSearch = styled(BaseDivFlex)<ICountFilterOptions>`
     totalOptions === 0
       ? ""
       : `position: relative;
-  ::after {
+  &::after {
     padding: 0px;
     top: 5px;
-    right: -1%;
+    right: 0%;
     position: absolute;
     color: gold;
     content: "${totalOptions}";
