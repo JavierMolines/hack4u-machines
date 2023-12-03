@@ -7,27 +7,26 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "push": "vercel",
-    "make": "npx jav-make-component"
+    "make": "npx jav-make-component",
+    "update": "rm -rf node_modules && rm package-lock.json && npm i"
   },
   "dependencies": {
-    "@vercel/analytics": "1.0.1",
-    "axios": "1.4.0",
-    "next": "12.3.1",
-    "node-html-parser": "6.1.5",
+    "@vercel/analytics": "1.1.1",
+    "axios": "1.6.2",
+    "next": "14.0.3",
+    "node-html-parser": "6.1.11",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/node": "20.4.8",
-    "@types/react": "18.2.19",
-    "@types/react-dom": "18.2.7",
-    "@types/styled-components": "5.1.26",
-    "babel-plugin-styled-components": "2.1.4",
-    "eslint": "8.46.0",
-    "eslint-config-next": "13.4.13",
-    "jav-make-component": "1.0.7",
-    "styled-components": "6.0.7",
-    "typescript": "5.1.6"
+    "@types/node": "20.10.2",
+    "@types/react": "18.2.41",
+    "@types/react-dom": "18.2.17",
+    "@types/styled-components": "5.1.32",
+    "eslint": "8.55.0",
+    "eslint-config-next": "14.0.3",
+    "jav-make-component": "1.0.8",
+    "styled-components": "6.1.1",
+    "typescript": "5.3.2"
   }
 }
