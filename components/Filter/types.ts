@@ -6,5 +6,5 @@ export interface IFilter {
 
 export interface ICountFilterOptions {
   id?: String
-  totalOptions?: Number
+  $options?: Number
 }

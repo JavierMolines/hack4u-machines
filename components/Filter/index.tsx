@@ -120,7 +120,7 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
             </ContainerMobileIcon>
 
             <ContainerMobileSearch>
-              <ContainerSearch totalOptions={totalSearchOption}>
+              <ContainerSearch $options={totalSearchOption}>
                 <Icon src="/search.svg" dimension={dimension} />
               </ContainerSearch>
               <Input
@@ -139,7 +139,7 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
             <ContainerFilter id="machinesButtonFilter" onClick={filterOnClick}>
               <Icon src="/filter.svg" dimension={dimension} />
             </ContainerFilter>
-            <ContainerSearch totalOptions={totalSearchOption}>
+            <ContainerSearch $options={totalSearchOption}>
               <Icon src="/search.svg" dimension={dimension} />
             </ContainerSearch>
             <Input

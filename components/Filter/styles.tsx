@@ -63,8 +63,8 @@ const BaseDivFlex = styled.div`
 
 // TODO: Improve css implementation
 export const ContainerSearch = styled(BaseDivFlex)<ICountFilterOptions>`
-  ${({ totalOptions }) =>
-    totalOptions === 0
+  ${({ $options }) =>
+    $options === 0
       ? ""
       : `position: relative;
   &::after {
@@ -73,7 +73,7 @@ export const ContainerSearch = styled(BaseDivFlex)<ICountFilterOptions>`
     right: 0%;
     position: absolute;
     color: gold;
-    content: "${totalOptions}";
+    content: "${$options}";
     text-align: center;
     font-size: 15px;
 
