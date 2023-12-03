@@ -13,6 +13,21 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
     display: "hidden",
   })
 
+  const links = [
+    {
+      url: "/",
+      title: "Machines",
+    },
+    {
+      url: "/shortcuts",
+      title: "Shortcuts",
+    },
+    {
+      url: "https://hack4u.io/conocenos/",
+      title: "About",
+    },
+  ]
+
   const handlerClick = () => {
     setIcon(
       icon.svg === "menu"
@@ -40,19 +55,11 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
           visibility: icon.display,
         }}
       >
-        <a href="/">
-          <h2>Machines</h2>
-        </a>
-
-        <a href="/shortcuts">
-          <h2>Shortcuts</h2>
-        </a>
-
-        <Link href="https://hack4u.io/conocenos/">
-          <a>
-            <h2>About</h2>
+        {links.map(({ url, title }) => (
+          <a key={title} href={url}>
+            <h2>{title}</h2>
           </a>
-        </Link>
+        ))}
 
         <Footer />
       </ContainerContent>

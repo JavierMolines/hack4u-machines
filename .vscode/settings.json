@@ -16,8 +16,5 @@
     "vitar",
     "Vuln",
     "Vulnerabilidad"
-  ],
-  "[svg]": {
-    "editor.defaultFormatter": "jock.svg"
-  }
+  ]
 }
