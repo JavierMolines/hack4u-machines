@@ -1,24 +1,24 @@
-import React, { useState } from "react"
-import { IMachineCard } from "../components/MachineCard/types"
+import React, { useState } from "react";
+import { IMachineCard } from "../components/MachineCard/types";
 
 interface IMachineContext {
-  machines: Array<IMachineCard>
-  setMachines: Function
+	machines: Array<IMachineCard>;
+	setMachines: Function;
 }
 
 const MachinesContext = React.createContext<IMachineContext>({
-  machines: [],
-  setMachines: () => {},
-})
+	machines: [],
+	setMachines: () => {},
+});
 
 const MachinesProvider = ({ children }: any) => {
-  const [machines, setMachines] = useState<Array<IMachineCard>>([])
+	const [machines, setMachines] = useState<Array<IMachineCard>>([]);
 
-  return (
-    <MachinesContext.Provider value={{ machines, setMachines }}>
-      {children}
-    </MachinesContext.Provider>
-  )
-}
+	return (
+		<MachinesContext.Provider value={{ machines, setMachines }}>
+			{children}
+		</MachinesContext.Provider>
+	);
+};
 
-export { MachinesContext, MachinesProvider }
+export { MachinesContext, MachinesProvider };

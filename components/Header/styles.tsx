@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { device } from "../../utils/breakpoints"
+import styled from "styled-components";
+import { device } from "../../utils/breakpoints";
 
 export const Container = styled.main`
   padding: 1.5rem 0rem;
@@ -24,7 +24,7 @@ export const Container = styled.main`
   @media ${device.tablet} {
     padding: 2rem 0rem;
   }
-`
+`;
 
 export const PlatformContainer = styled.div`
   display: grid;
@@ -48,4 +48,4 @@ export const PlatformContainer = styled.div`
       grid-column: auto;
     }
   }
-`
+`;

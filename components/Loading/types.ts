@@ -1,3 +1,3 @@
 // Types for Loading
 
-export interface ILoading {}
+export type ILoading = {};

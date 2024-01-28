@@ -1,5 +1,5 @@
 const handlerOverflowVertical = (state: boolean) => {
-  document.body.style.overflowY = state ? "hidden" : "visible"
-}
+	document.body.style.overflowY = state ? "hidden" : "visible";
+};
 
-export { handlerOverflowVertical }
+export { handlerOverflowVertical };

@@ -1,3 +1,3 @@
 // Types for Footer
 
-export interface IFooter {}
+export type IFooter = {};

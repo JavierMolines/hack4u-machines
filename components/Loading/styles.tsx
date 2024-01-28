@@ -1,18 +1,18 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Container = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50vh;
-`
+`;
 
 export const Spinner = styled.main`
   display: block;
   width: 300px;
   height: 300px;
   position: relative;
-`
+`;
 
 const CircleBase = styled.div`
   top: 0%;
@@ -26,7 +26,7 @@ const CircleBase = styled.div`
   animation-duration: 1.4s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-`
+`;
 
 export const CircleRed = styled(CircleBase)`
   width: 67px;
@@ -42,7 +42,7 @@ export const CircleRed = styled(CircleBase)`
       transform: rotate(360deg);
     }
   }
-`
+`;
 
 export const CircleWhite = styled(CircleBase)`
   width: 55px;
@@ -58,4 +58,4 @@ export const CircleWhite = styled(CircleBase)`
       transform: rotate(-360deg);
     }
   }
-`
+`;
