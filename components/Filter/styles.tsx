@@ -1,10 +1,10 @@
-import styled from "styled-components"
-import { device } from "../../utils/breakpoints"
-import { ICountFilterOptions } from "./types"
+import styled from "styled-components";
+import { device } from "../../utils/breakpoints";
+import { ICountFilterOptions } from "./types";
 
 export const Container = styled.section`
   width: 100%;
-`
+`;
 
 export const FilterContainer = styled.form`
   display: grid;
@@ -15,7 +15,7 @@ export const FilterContainer = styled.form`
   @media ${device.laptop} {
     grid-template-columns: 5% 5% 70% 20%;
   }
-`
+`;
 
 export const Input = styled.input`
   font-size: 1.2rem;
@@ -40,7 +40,7 @@ export const Input = styled.input`
   @media ${device.laptop} {
     padding: 0rem 0rem 0rem 0.5rem;
   }
-`
+`;
 
 export const ButtonSearch = styled.button`
   border-top-right-radius: 0.5rem;
@@ -52,21 +52,21 @@ export const ButtonSearch = styled.button`
   font-size: 1.1rem;
   padding: 0.5rem 0rem;
   cursor: pointer;
-`
+`;
 
 const BaseDivFlex = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 // TODO: Improve css implementation
 export const ContainerSearch = styled(BaseDivFlex)<ICountFilterOptions>`
   ${({ $options }) =>
-    $options === 0
-      ? ""
-      : `position: relative;
+		$options === 0
+			? ""
+			: `position: relative;
   &::after {
     padding: 0px;
     top: 5px;
@@ -88,21 +88,21 @@ export const ContainerSearch = styled(BaseDivFlex)<ICountFilterOptions>`
     }
 
   }`};
-`
+`;
 
 export const ContainerFilter = styled(BaseDivFlex)`
   background-color: var(--colorRedDark);
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
   cursor: pointer;
-`
+`;
 
 export const ContainerMobileIcon = styled.div`
   display: grid;
   grid-template-columns: 50% 50%;
-`
+`;
 
 export const ContainerMobileSearch = styled.div`
   display: grid;
   grid-template-columns: 10% 90%;
-`
+`;

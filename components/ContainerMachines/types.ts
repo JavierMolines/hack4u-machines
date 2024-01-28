@@ -1,6 +1,6 @@
 // Types for ContainerMachines
-import { IMachineCard } from "../MachineCard/types"
+import { IMachineCard } from "../MachineCard/types";
 
 export interface IContainerMachines {
-  machines: IMachineCard[]
+	machines: IMachineCard[];
 }

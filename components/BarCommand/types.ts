@@ -1,3 +1,3 @@
 // Types for BarCommand
 
-export interface IBarCommand {}
+export type IBarCommand = {};

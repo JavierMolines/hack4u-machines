@@ -1,11 +1,10 @@
 {
-  "recommendations": [
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "usernamehw.errorlens",
-    "mhutchie.git-graph",
-    "styled-components.vscode-styled-components",
-    "jock.svg",
-    "streetsidesoftware.code-spell-checker"
-  ]
+	"recommendations": [
+		"usernamehw.errorlens",
+		"mhutchie.git-graph",
+		"styled-components.vscode-styled-components",
+		"jock.svg",
+		"biomejs.biome",
+		"streetsidesoftware.code-spell-checker"
+	]
 }

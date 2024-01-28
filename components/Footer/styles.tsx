@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Container = styled.main`
   font-size: 0.6rem;
@@ -17,7 +17,7 @@ export const Container = styled.main`
     padding: 0rem;
     margin: 0rem;
   }
-`
+`;
 
 export const LinePerson = styled.a`
   color: var(--colorRedLight);
@@ -26,8 +26,8 @@ export const LinePerson = styled.a`
   :hover {
     color: var(--colorRedDark);
   }
-`
+`;
 
 export const IconLove = styled.img`
   margin: 0rem 0.2rem;
-`
+`;

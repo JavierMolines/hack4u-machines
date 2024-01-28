@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Container = styled.main`
   display: flex;
@@ -16,4 +16,4 @@ export const Container = styled.main`
   @media (min-width: 1200px) {
     width: 1170px;
   }
-`
+`;

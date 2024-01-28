@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const FixedContainer = styled.div`
   z-index: 10;
@@ -6,7 +6,7 @@ export const FixedContainer = styled.div`
   position: fixed;
   top: 1rem;
   right: 1rem;
-`
+`;
 
 export const ContainerContent = styled.div`
   z-index: 2;
@@ -18,4 +18,4 @@ export const ContainerContent = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #b01215df;
-`
+`;
