@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
-  font-size: 0.6rem;
+  font-size: 1rem;
   width: 100%;
   background-color: var(--colorGrayLight);
 
@@ -11,6 +11,7 @@ export const Container = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 0.5rem;
 
   & p {
