@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { BlogPost } from "../components/BlogPost";
-import { PageLayout } from "../components/PageLayout";
 import { LineItem } from "../components/BlogPost/styles";
+import { PageLayout } from "../components/PageLayout";
 
 const Shortcuts: NextPage = () => {
 	const versions = [

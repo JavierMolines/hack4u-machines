@@ -22,6 +22,12 @@
 	},
 
 	"files": {
-		"ignore": ["./build/*.js", "./build/*.ts", "./.next/*.js", "./.next/*.ts"]
+		"ignore": [
+			"./build/*.js",
+			"./build/*.ts",
+			"./.next/*.js",
+			"./.next/*.ts",
+			"./.next/*.json"
+		]
 	}
 }
