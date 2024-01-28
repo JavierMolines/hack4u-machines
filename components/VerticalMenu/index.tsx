@@ -23,6 +23,10 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
 			title: "Shortcuts",
 		},
 		{
+			url: "/releases",
+			title: "Releases",
+		},
+		{
 			url: "https://hack4u.io/conocenos/",
 			title: "About",
 		},
