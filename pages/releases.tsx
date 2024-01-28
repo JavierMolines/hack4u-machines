@@ -31,7 +31,7 @@ const Shortcuts: NextPage = () => {
 				</h1>
 
 				{versions.map(({ version, changes, date }, _) => (
-					<section>
+					<section key={version + date + 1}>
 						<h1 id={version}>
 							{version} - [{date}]
 						</h1>
@@ -41,8 +41,8 @@ const Shortcuts: NextPage = () => {
 								paddingLeft: "10px",
 							}}
 						>
-							{changes.map((change, count) => (
-								<LineItem key={`${change}${count + 1}`}>{change}.</LineItem>
+							{changes.map((change, _) => (
+								<LineItem key={`${change}`}>{change}.</LineItem>
 							))}
 						</ul>
 					</section>
