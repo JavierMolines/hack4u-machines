@@ -15,7 +15,7 @@ const Shortcuts: NextPage = () => {
 				"The `CONTRIBUTING.md` file has been added",
 				"The `PULL_REQUEST_TEMPLATE.md` file has been added",
 			],
-			date: "01/28/2024",
+			date: "02/02/2024",
 		},
 	];
 
