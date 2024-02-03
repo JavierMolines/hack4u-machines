@@ -1,3 +1,3 @@
 // Types for VerticalMenu
 
-export interface IVerticalMenu {}
+export type IVerticalMenu = {};

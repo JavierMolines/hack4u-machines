@@ -1,20 +1,20 @@
-import { IPageLayout } from "./types"
-import { Container } from "./styles"
-import { VerticalMenu } from "../VerticalMenu"
-import Head from "next/head"
+import Head from "next/head";
+import { VerticalMenu } from "../VerticalMenu";
+import { Container } from "./styles";
+import { IPageLayout } from "./types";
 
 const PageLayout: React.FC<IPageLayout> = ({ children, title }) => {
-  return (
-    <>
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content="Machines website Hack4u" />
-      </Head>
+	return (
+		<>
+			<Head>
+				<title>{title}</title>
+				<meta name="description" content="Machines website Hack4u" />
+			</Head>
 
-      <VerticalMenu />
-      <Container>{children}</Container>
-    </>
-  )
-}
+			<VerticalMenu />
+			<Container>{children}</Container>
+		</>
+	);
+};
 
-export { PageLayout }
+export { PageLayout };

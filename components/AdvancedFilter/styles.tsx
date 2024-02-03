@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { device } from "../../utils/breakpoints"
+import styled from "styled-components";
+import { device } from "../../utils/breakpoints";
 
 export const Container = styled.div`
   border-radius: 0.5rem;
@@ -9,7 +9,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-`
+`;
 
 export const GridOptions = styled.div`
   width: 100%;
@@ -21,7 +21,7 @@ export const GridOptions = styled.div`
     gap: 2rem;
     flex-direction: row;
   }
-`
+`;
 
 export const OptionFlex = styled.div`
   display: flex;
@@ -38,7 +38,7 @@ export const OptionFlex = styled.div`
   & svg {
     cursor: pointer;
   }
-`
+`;
 
 export const ApplyChange = styled.button`
   width: 100px;
@@ -50,7 +50,7 @@ export const ApplyChange = styled.button`
   padding: 0.5rem 0rem;
   background-color: var(--colorRedDark);
   cursor: pointer;
-`
+`;
 
 export const MultipleOptions = styled.div`
   display: flex;
@@ -65,4 +65,4 @@ export const MultipleOptions = styled.div`
     margin-top: 0rem;
     justify-content: right;
   }
-`
+`;

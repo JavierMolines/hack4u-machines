@@ -1,0 +1,33 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+
+	"organizeImports": {
+		"enabled": true
+	},
+
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"suspicious": {
+				"noExplicitAny": "off"
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "off"
+			},
+			"complexity": {
+				"noBannedTypes": "off"
+			}
+		}
+	},
+
+	"files": {
+		"ignore": [
+			"./build/*.js",
+			"./build/*.ts",
+			"./.next/*.js",
+			"./.next/*.ts",
+			"./.next/*.json"
+		]
+	}
+}

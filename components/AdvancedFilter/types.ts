@@ -1,9 +1,9 @@
 // Types for AdvancedFilter
 
 export interface IAdvancedFilter {
-  callback: Function
+	callback: Function;
 }
 
 export interface IOption {
-  id: number
+	id: number;
 }
