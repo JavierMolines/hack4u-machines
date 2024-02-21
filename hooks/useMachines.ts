@@ -9,7 +9,7 @@ const useMachines = () => {
 	const callApi = async () => {
 		try {
 			const nowDate = new Date().toLocaleDateString();
-			const response = await fetch("http://localhost:8080");
+			const response = await fetch("/api/machines");
 			const data = await response.json();
 
 			setStorage("cacheTiming", [nowDate]);
