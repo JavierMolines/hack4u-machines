@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IBlogPost } from "./types";
+import type { IBlogPost } from "./types";
 
 export const Container = styled.main<IBlogPost>`
     margin: 3rem 0rem 1rem 0rem;

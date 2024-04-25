@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { device } from "../../utils/breakpoints";
 import { mapInfo } from "../../utils/definition";
-import { IContainerPlatform } from "./types";
+import type { IContainerPlatform } from "./types";
 
 export const Container = styled.header`
   font-size: 1rem;

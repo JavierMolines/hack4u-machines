@@ -1,5 +1,5 @@
 import { Container, IconLove, LinePerson } from "./styles";
-import { IFooter } from "./types";
+import type { IFooter } from "./types";
 
 const Footer: React.FC<IFooter> = () => {
 	const dimension = 15;
