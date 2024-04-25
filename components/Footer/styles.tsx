@@ -5,6 +5,7 @@ export const Container = styled.main`
   width: 100%;
   background-color: var(--colorGrayLight);
 
+  text-wrap: balance;
   position: fixed;
   bottom: 0rem;
   padding: 0.5rem 0rem;
