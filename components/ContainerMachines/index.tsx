@@ -3,7 +3,7 @@ import { randomId } from "../../utils/methods";
 import { getStorage } from "../../utils/storage";
 import { MachineCard } from "../MachineCard";
 import { Container, LabelFound } from "./styles";
-import { IContainerMachines } from "./types";
+import type { IContainerMachines } from "./types";
 
 const ContainerMachines: React.FC<IContainerMachines> = ({ machines }) => {
 	const searchInputParam = getStorage(storagesKeys.paramSearchOption);

@@ -1,5 +1,5 @@
 import { Container } from "./styles";
-import { IBlogPost } from "./types";
+import type { IBlogPost } from "./types";
 
 const BlogPost: React.FC<IBlogPost> = ({
 	children,

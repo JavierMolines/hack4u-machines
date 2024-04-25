@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { optionsFilters, storagesKeys } from "../../utils/definition";
 import { getStorage, setStorage } from "../../utils/storage";
 import { Icon } from "../Icon";
-import { IAdvancedFilter } from "./types";
+import type { IAdvancedFilter } from "./types";
 
 import {
 	ApplyChange,

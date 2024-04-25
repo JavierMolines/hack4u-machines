@@ -1,4 +1,4 @@
-import { FormEvent, useContext, useEffect, useRef, useState } from "react";
+import { type FormEvent, useContext, useEffect, useRef, useState } from "react";
 import { MachinesContext } from "../../context/MachineContent";
 import { useDevice } from "../../hooks/useDevice";
 import { filterExact, sortHight, storagesKeys } from "../../utils/definition";
@@ -6,7 +6,7 @@ import { handlerOverflowVertical } from "../../utils/domMethods";
 import { getStorage, removeStorage, setStorage } from "../../utils/storage";
 import { AdvancedFilter } from "../AdvancedFilter";
 import { Icon } from "../Icon/";
-import { IFilter } from "./types";
+import type { IFilter } from "./types";
 
 import {
 	ButtonSearch,

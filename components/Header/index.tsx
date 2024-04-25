@@ -1,5 +1,5 @@
 import { Container, PlatformContainer } from "./styles";
-import { IHeader } from "./types";
+import type { IHeader } from "./types";
 
 const Header: React.FC<IHeader> = ({ totalMachines }) => {
 	return (

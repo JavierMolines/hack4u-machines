@@ -4,7 +4,7 @@ import { iconByPlatform, iconByState } from "../../utils/methods";
 import { getStorage } from "../../utils/storage";
 import { Icon } from "../Icon";
 import { Link } from "../Link";
-import { IMachineCard } from "./types";
+import type { IMachineCard } from "./types";
 
 import {
 	detailMachine,

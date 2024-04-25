@@ -5,7 +5,7 @@ import { handlerOverflowVertical } from "../../utils/domMethods";
 import { Footer } from "../Footer";
 import { Icon } from "../Icon";
 import { ContainerContent, FixedContainer } from "./styles";
-import { IVerticalMenu } from "./types";
+import type { IVerticalMenu } from "./types";
 
 const VerticalMenu: React.FC<IVerticalMenu> = () => {
 	const [icon, setIcon] = useState<any>({
@@ -38,11 +38,11 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
 				? {
 						svg: "close",
 						display: "visible",
-				  }
+					}
 				: {
 						svg: "menu",
 						display: "hidden",
-				  },
+					},
 		);
 
 		handlerOverflowVertical(icon.svg === "menu");

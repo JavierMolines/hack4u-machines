@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { VerticalMenu } from "../VerticalMenu";
 import { Container } from "./styles";
-import { IPageLayout } from "./types";
+import type { IPageLayout } from "./types";
 
 const PageLayout: React.FC<IPageLayout> = ({ children, title }) => {
 	return (

@@ -1,5 +1,5 @@
 import { CustomLink } from "./styles";
-import { ILink } from "./types";
+import type { ILink } from "./types";
 
 const Link: React.FC<ILink> = ({ target, children, color, id }) => {
 	return (

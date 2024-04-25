@@ -1,5 +1,5 @@
 import { IconImage } from "./styles";
-import { IIcon } from "./types";
+import type { IIcon } from "./types";
 
 const Icon: React.FC<IIcon> = ({ id, src, dimension, click = () => {} }) => {
 	return (

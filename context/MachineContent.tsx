@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IMachineCard } from "../components/MachineCard/types";
+import type { IMachineCard } from "../components/MachineCard/types";
 
 interface IMachineContext {
 	machines: Array<IMachineCard>;

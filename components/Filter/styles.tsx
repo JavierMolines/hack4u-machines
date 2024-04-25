@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { device } from "../../utils/breakpoints";
-import { ICountFilterOptions } from "./types";
+import type { ICountFilterOptions } from "./types";
 
 export const Container = styled.section`
   width: 100%;
