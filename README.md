@@ -1,5 +1,10 @@
 # Getting Started
 
+Install node version with nvm
+```bash
+nvm use
+```
+
 Install dependencies.
 
 ```bash
