@@ -6,6 +6,15 @@ import { PageLayout } from "../components/PageLayout";
 const Shortcuts: NextPage = () => {
 	const versions = [
 		{
+			version: "1.1.1",
+			changes: [
+				"The NextJS version was updated (14.1.0 -> 14.2.4)",
+				"Five main and development libraries have been updated in the package.json.",
+				"The .nvmrc file is added with the version supported by the project",
+			],
+			date: "05/07/2024",
+		},
+		{
 			version: "1.1.0",
 			changes: [
 				"The CHANGELOG has been added to the page",
