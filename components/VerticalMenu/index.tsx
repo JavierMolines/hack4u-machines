@@ -1,10 +1,8 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import Link from "next/link";
 import { useState } from "react";
 import { handlerOverflowVertical } from "../../utils/domMethods";
 import { Footer } from "../Footer";
 import { Icon } from "../Icon";
-import { ContainerContent, FixedContainer } from "./styles";
 import type { IVerticalMenu } from "./types";
 
 const VerticalMenu: React.FC<IVerticalMenu> = () => {
@@ -50,11 +48,16 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
 
 	return (
 		<>
-			<FixedContainer onClick={handlerClick}>
+			{/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+			<div
+				className="z-10 cursor-pointer fixed top-4 right-4"
+				onClick={handlerClick}
+			>
 				<Icon src={`/${icon.svg}.svg`} dimension={30} />
-			</FixedContainer>
+			</div>
 
-			<ContainerContent
+			<div
+				className="z-20 fixed w-full h-full flex flex-col justify-center items-center bg-[#b01215df]"
 				style={{
 					visibility: icon.display,
 				}}
@@ -66,7 +69,7 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
 				))}
 
 				<Footer />
-			</ContainerContent>
+			</div>
 		</>
 	);
 };

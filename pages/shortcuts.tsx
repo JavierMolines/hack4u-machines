@@ -7,12 +7,8 @@ const Shortcuts: NextPage = () => {
 		<PageLayout title="Machines - Shortcuts">
 			<BlogPost>
 				<>
-					<div
-						style={{
-							textAlign: "center",
-						}}
-					>
-						<h1 style={{}}>Integrated keyboard shortcuts</h1>
+					<div className="text-center">
+						<h1>Integrated keyboard shortcuts</h1>
 						<p>
 							For those who always love to have their hands on the keyboard.
 						</p>
@@ -21,11 +17,7 @@ const Shortcuts: NextPage = () => {
 
 					<h2>Navigation</h2>
 
-					<div
-						style={{
-							paddingLeft: "2rem",
-						}}
-					>
+					<div className="pl-8">
 						<h3>Ctrl + s</h3>
 						<p>Moves you to the machine search bar.</p>
 
@@ -44,21 +36,13 @@ const Shortcuts: NextPage = () => {
 
 					<h2>Filter</h2>
 
-					<div
-						style={{
-							paddingLeft: "2rem",
-						}}
-					>
+					<div className="pl-8">
 						<h3>Ctrl + d</h3>
 						<p>Fold and unfold the advanced filter.</p>
 
 						<h3>IF ADVANCED FILTER IS OPEN</h3>
 
-						<div
-							style={{
-								paddingLeft: "2rem",
-							}}
-						>
+						<div className="pl-8">
 							<h3>Ctrl + 1</h3>
 							<p>Select the `Clear` option.</p>
 
