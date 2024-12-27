@@ -9,9 +9,21 @@ import { useMachines } from "../hooks/useMachines";
 import { useShortcuts } from "../hooks/useShortcuts";
 
 const Home: NextPage = () => {
+	useShortcuts();
+	const { machines, mapTotalMachines } = useMachines();
+	const [machinesInView, setMachinesInView] = useState<Array<any>>([]);
+
 	return (
 		<PageLayout title="Machines - Search engine">
-			<h1 className="text-3xl font-bold underline">Hello world!</h1>
+			<Header totalMachines={mapTotalMachines} />
+			{machines.length === 0 ? (
+				<Loading />
+			) : (
+				<>
+					<Filter callbackShowMachines={setMachinesInView} />
+					<ContainerMachines machines={machinesInView} />
+				</>
+			)}
 		</PageLayout>
 	);
 };

@@ -13,15 +13,6 @@ import {
 	storagesKeys,
 } from "../../utils/definition";
 
-import {
-	CardLabel,
-	CertificationsContainer,
-	Container,
-	ContainerExpand,
-	TechniquesContainer,
-	TextWithIcon,
-} from "./styles";
-
 const MachineCard: React.FC<IMachineCard> = ({
 	name,
 	ip,
@@ -90,10 +81,10 @@ const MachineCard: React.FC<IMachineCard> = ({
 			return <></>;
 		}
 		return (
-			<TextWithIcon>
+			<div className="flex items-center justify-start gap-1">
 				<Icon src={`/${iconByState(state)}.svg`} dimension={dimensionIcon} />
 				<p>{state}</p>
-			</TextWithIcon>
+			</div>
 		);
 	};
 
@@ -102,10 +93,10 @@ const MachineCard: React.FC<IMachineCard> = ({
 			return <></>;
 		}
 		return (
-			<TextWithIcon>
+			<div className="flex items-center justify-start gap-1">
 				<Icon src={`/${iconByPlatform(os)}.svg`} dimension={dimensionIcon} />
 				<p>{os}</p>
-			</TextWithIcon>
+			</div>
 		);
 	};
 
@@ -122,8 +113,8 @@ const MachineCard: React.FC<IMachineCard> = ({
 						)}
 					</ul>
 				) : (
-					<TechniquesContainer>
-						<ul>
+					<div className="grid grid-cols-[48%_48%] justify-between">
+						<ul className="flex flex-col m-0 p-4">
 							{dataTech.left.map((technique, index) =>
 								generateLabelSkill(technique, index),
 							)}
@@ -133,12 +124,12 @@ const MachineCard: React.FC<IMachineCard> = ({
 								generateLabelSkill(technique, index),
 							)}
 						</ul>
-					</TechniquesContainer>
+					</div>
 				)}
 
-				<CertificationsContainer>
+				<div className="border-l-4 border-red-500 my-4 p-2 w-full bg-gray-200 rounded">
 					<span>{certCollection.join(" ")}</span>
-				</CertificationsContainer>
+				</div>
 			</>
 		);
 	};
@@ -151,46 +142,52 @@ const MachineCard: React.FC<IMachineCard> = ({
 	}, []);
 
 	return (
-		<Container className="machineItem" id={identifier}>
-			<CardLabel platform={platform}>
+		<header
+			className="text-base border-b border-gray-500 border-t-transparent border-r-transparent border-l-transparent machineItem"
+			id={identifier}
+		>
+			<div className="grid grid-cols-3 justify-between">
 				<Link
 					id={`${identifier}youtube`}
 					target={video}
 					color="var(--colorRedLight)"
 				>
-					<TextWithIcon>
+					<div className="flex items-center justify-start gap-1">
 						{!isMobile && <Icon src={"/link.svg"} dimension={dimensionIcon} />}
 						<p>{name}</p>
-					</TextWithIcon>
+					</div>
 				</Link>
 
-				<TextWithIcon>{platformRender()}</TextWithIcon>
+				<div className="flex items-center justify-start gap-1">
+					{platformRender()}
+				</div>
 
 				{renderDifficult()}
 
 				{renderOperativeSystem()}
 
 				{!isMobile && (
-					<TextWithIcon>
+					<div className="flex items-center justify-start gap-1">
 						<p>Certifications {certCollection.length}</p>
-					</TextWithIcon>
+					</div>
 				)}
 
-				<TextWithIcon>
+				<div className="flex items-center justify-start gap-1">
 					<p>Skills used {techCollection.length}</p>
-				</TextWithIcon>
+				</div>
 
-				<ContainerExpand
+				<div
+					className="w-full flex justify-center items-center"
 					id={`${identifier}button`}
 					style={{ cursor: "pointer" }}
 					onClick={handlerClick}
 				>
 					<Icon src={iconArrowName} dimension={dimension} />
-				</ContainerExpand>
-			</CardLabel>
+				</div>
+			</div>
 
 			{tabContentExpand()}
-		</Container>
+		</header>
 	);
 };
 

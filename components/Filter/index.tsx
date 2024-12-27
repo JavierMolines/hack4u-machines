@@ -8,17 +8,6 @@ import { AdvancedFilter } from "../AdvancedFilter";
 import { Icon } from "../Icon/";
 import type { IFilter } from "./types";
 
-import {
-	ButtonSearch,
-	Container,
-	ContainerFilter,
-	ContainerMobileIcon,
-	ContainerMobileSearch,
-	ContainerSearch,
-	FilterContainer,
-	Input,
-} from "./styles";
-
 const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
 	const dimension: number = 25;
 	const inputPlaceHolder =
@@ -104,59 +93,44 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
 	}, []);
 
 	return (
-		<Container>
-			<FilterContainer autoComplete="off" onSubmit={onSubmit}>
-				{isMobile ? (
-					<>
-						<ContainerMobileIcon>
-							<ContainerFilter
-								id="machinesButtonFilter"
-								onClick={filterOnClick}
-							>
-								<Icon src="/filter.svg" dimension={dimension} />
-							</ContainerFilter>
-							<ButtonSearch>Search</ButtonSearch>
-						</ContainerMobileIcon>
+		<section className="w-full">
+			<form
+				className="grid grid-cols-1 bg-gray-800 rounded-[0.5rem]"
+				autoComplete="off"
+				onSubmit={onSubmit}
+			>
+				<div
+					id="machinesButtonFilter"
+					onClick={filterOnClick}
+					className="w-full flex justify-center items-center bg-red-800 rounded-tl-[0.5rem] rounded-bl-[0.5rem] cursor-pointer"
+				>
+					<Icon src="/filter.svg" dimension={dimension} />
+				</div>
 
-						<ContainerMobileSearch>
-							<ContainerSearch $options={totalSearchOption}>
-								<Icon src="/search.svg" dimension={dimension} />
-							</ContainerSearch>
-							<Input
-								id="machinesButtonSearch"
-								autoFocus
-								type="text"
-								aria-autocomplete="none"
-								autoComplete="off"
-								ref={inputFilter}
-								placeholder={inputPlaceHolder}
-							/>
-						</ContainerMobileSearch>
-					</>
-				) : (
-					<>
-						<ContainerFilter id="machinesButtonFilter" onClick={filterOnClick}>
-							<Icon src="/filter.svg" dimension={dimension} />
-						</ContainerFilter>
-						<ContainerSearch $options={totalSearchOption}>
-							<Icon src="/search.svg" dimension={dimension} />
-						</ContainerSearch>
-						<Input
-							id="machinesButtonSearch"
-							autoFocus
-							type="text"
-							aria-autocomplete="none"
-							autoComplete="off"
-							ref={inputFilter}
-							placeholder={inputPlaceHolder}
-						/>
-						<ButtonSearch>Search</ButtonSearch>
-					</>
-				)}
-			</FilterContainer>
+				<div className="w-full flex justify-center items-center">
+					<Icon src="/search.svg" dimension={dimension} />
+				</div>
+
+				<input
+					type="text"
+					className="text-[1.2rem] py-[0.75rem] px-[0.25rem] border-0 outline-none bg-transparent text-white placeholder-gray-400"
+					id="machinesButtonSearch"
+					aria-autocomplete="none"
+					autoComplete="off"
+					ref={inputFilter}
+					placeholder={inputPlaceHolder}
+				/>
+
+				<button
+					type="button"
+					className="rounded-tr-[0.5rem] rounded-br-[0.5rem] bg-red-800 text-white border-0 outline-none text-[1.1rem] py-[0.5rem] px-0 cursor-pointer"
+				>
+					Search
+				</button>
+			</form>
 
 			{showAdvancedFilter && <AdvancedFilter callback={filterOnClick} />}
-		</Container>
+		</section>
 	);
 };
 

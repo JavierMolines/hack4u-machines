@@ -11,8 +11,8 @@ export const LINKS_VERTICAL_MENU = [
 		url: "/releases",
 		title: "Releases",
 	},
-	//{
-	//	url: "https://hack4u.io/conocenos/",
-	//	title: "About",
-	//},
+	{
+		url: "https://hack4u.io/conocenos/",
+		title: "About",
+	},
 ];

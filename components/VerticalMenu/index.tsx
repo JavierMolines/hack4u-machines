@@ -22,7 +22,6 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
 
 	return (
 		<>
-			{/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
 			<div
 				className="z-10 cursor-pointer fixed top-4 right-4"
 				onClick={handlerClick}

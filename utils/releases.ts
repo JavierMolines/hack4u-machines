@@ -1,14 +1,18 @@
 export const PROJECT_VERSIONS = [
 	{
 		version: "1.1.2",
-		changes: ["Update .nvmrc (lts/iron -> lts/jod)"],
+		changes: [
+			"The NextJS version was updated (14.2.4 -> 14.2.22)",
+			"Replace the framework for styles from styled-component to TailwindCSS",
+			"Update .nvmrc (lts/iron -> lts/jod)",
+		],
 		date: "27/12/2024",
 	},
 	{
 		version: "1.1.1",
 		changes: [
 			"The NextJS version was updated (14.1.0 -> 14.2.4)",
-			"Five main and development libraries have been updated in the package.json.",
+			"Five main and development libraries have been updated in the package.json",
 			"The .nvmrc file is added with the version supported by the project",
 		],
 		date: "05/07/2024",

@@ -27,3 +27,29 @@ a {
 	font-family: "Roboto", Arial, sans-serif;
 	font-weight: 300;
 }
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes spin-reverse {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(-360deg);
+	}
+}
+
+.animate-spin {
+	animation: spin 1.4s linear infinite;
+}
+
+.animate-spin-reverse {
+	animation: spin-reverse 1.4s linear infinite;
+}
