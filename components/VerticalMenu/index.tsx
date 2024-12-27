@@ -37,8 +37,8 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
 				}}
 			>
 				{LINKS_VERTICAL_MENU.map(({ url, title }) => (
-					<a key={title} href={url}>
-						<h2>{title}</h2>
+					<a className="text-2xl my-6 p-2" key={title} href={url}>
+						<span>{title}</span>
 					</a>
 				))}
 

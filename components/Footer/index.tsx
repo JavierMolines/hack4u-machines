@@ -3,8 +3,8 @@ import type { IFooter } from "./types";
 const Footer: React.FC<IFooter> = () => {
 	const dimension = 15;
 	return (
-		<div className="text-base w-full bg-[var(--colorGrayLight)] text-center fixed bottom-0 p-2 flex flex-col items-center gap-2">
-			<p className="p-0 m-0">
+		<div className="text-base w-full bg-[var(--colorGrayLight)] text-center fixed bottom-0 p-2 flex flex-col items-center gap-2 text-balance">
+			<span className="p-0 m-0">
 				Made by
 				<a
 					target="_blank"
@@ -12,18 +12,18 @@ const Footer: React.FC<IFooter> = () => {
 					className="text-[var(--colorRedLight)] px-1 hover:text-[var(--colorRedDark)]"
 					rel="noreferrer"
 				>
-					JavierVoid
+					<span>JavierVoid</span>
 				</a>
 				with more
 				<img
+					className="inline-block mx-1"
 					src="/love.svg"
 					height={dimension}
 					width={dimension}
 					alt="love"
-					className="mx-1"
 				/>
 				to the Hack4u community.
-			</p>
+			</span>
 			<p className="p-0 m-0">
 				Special thanks to
 				<a
