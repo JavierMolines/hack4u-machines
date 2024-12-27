@@ -2,8 +2,8 @@ import { useState } from "react";
 import { handlerOverflowVertical } from "../../utils/domMethods";
 import { Footer } from "../Footer";
 import { Icon } from "../Icon";
-import type { IVerticalMenu } from "./types";
 import { LINKS_VERTICAL_MENU } from "./data";
+import type { IVerticalMenu } from "./types";
 
 const VerticalMenu: React.FC<IVerticalMenu> = () => {
 	const [icon, setIcon] = useState<any>({
