@@ -1,9 +1,9 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
 import { useState } from "react";
 import { handlerOverflowVertical } from "../../utils/domMethods";
 import { Footer } from "../Footer";
 import { Icon } from "../Icon";
 import type { IVerticalMenu } from "./types";
+import { LINKS_VERTICAL_MENU } from "./data";
 
 const VerticalMenu: React.FC<IVerticalMenu> = () => {
 	const [icon, setIcon] = useState<any>({
@@ -11,39 +11,13 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
 		display: "hidden",
 	});
 
-	const links = [
-		{
-			url: "/",
-			title: "Machines",
-		},
-		{
-			url: "/shortcuts",
-			title: "Shortcuts",
-		},
-		{
-			url: "/releases",
-			title: "Releases",
-		},
-		{
-			url: "https://hack4u.io/conocenos/",
-			title: "About",
-		},
-	];
-
 	const handlerClick = () => {
-		setIcon(
-			icon.svg === "menu"
-				? {
-						svg: "close",
-						display: "visible",
-					}
-				: {
-						svg: "menu",
-						display: "hidden",
-					},
-		);
-
-		handlerOverflowVertical(icon.svg === "menu");
+		const isSvgMenu = icon.svg === "menu";
+		setIcon({
+			svg: isSvgMenu ? "close" : "menu",
+			display: isSvgMenu ? "visible" : "hidden",
+		});
+		handlerOverflowVertical(isSvgMenu);
 	};
 
 	return (
@@ -57,12 +31,12 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
 			</div>
 
 			<div
-				className="z-20 fixed w-full h-full flex flex-col justify-center items-center bg-[#b01215df]"
+				className="z-11 fixed w-full h-full flex flex-col justify-center items-center bg-[#b01215df]"
 				style={{
 					visibility: icon.display,
 				}}
 			>
-				{links.map(({ url, title }) => (
+				{LINKS_VERTICAL_MENU.map(({ url, title }) => (
 					<a key={title} href={url}>
 						<h2>{title}</h2>
 					</a>
