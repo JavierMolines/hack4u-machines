@@ -6,7 +6,7 @@ export const PROJECT_VERSIONS = [
 			"Replace the framework for styles from styled-component to TailwindCSS",
 			"Update .nvmrc (lts/iron -> lts/jod)",
 		],
-		date: "27/12/2024",
+		date: "28/12/2024",
 	},
 	{
 		version: "1.1.1",
