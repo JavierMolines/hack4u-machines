@@ -57,9 +57,7 @@ const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
 						className="flex flex-row gap-2 items-center justify-start"
 						key={`${option}-${index + 1}`}
 					>
-						<p className="capitalize">
-							<p>{option.title}</p>
-						</p>{" "}
+						<p className="capitalize">{option.title}</p>
 						<Icon
 							click={() => handlerOptionClick(option.id)}
 							id={`advancedFilterOption${option.id}`}

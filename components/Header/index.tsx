@@ -15,10 +15,12 @@ const Header: React.FC<IHeader> = ({ totalMachines }) => {
 
 			<h2 className="p-0 m-0 text-2xl">Loaded Machines</h2>
 
-			<div className="flex gap-8 text-center">
-				<p className="p-0">HackTheBox: {totalMachines.htb ?? 0}</p>
-				<p className="p-0">VulnHub: {totalMachines.vuln ?? 0}</p>
-				<p className="p-0">PortSwigger: {totalMachines.swigger ?? 0}</p>
+			<div className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4 text-center">
+				<p>HackTheBox: {totalMachines.htb ?? 0}</p>
+				<p>VulnHub: {totalMachines.vuln ?? 0}</p>
+				<p className="col-span-2 lg:col-span-1">
+					PortSwigger: {totalMachines.swigger ?? 0}
+				</p>
 			</div>
 		</main>
 	);
