@@ -1,4 +1,3 @@
-import { Container } from "./styles";
 import type { IBlogPost } from "./types";
 
 const BlogPost: React.FC<IBlogPost> = ({
@@ -7,9 +6,15 @@ const BlogPost: React.FC<IBlogPost> = ({
 	$padding = "0rem 3rem",
 }) => {
 	return (
-		<Container $maxWidth={$maxWidth} $padding={$padding}>
+		<main
+			style={{
+				maxWidth: $maxWidth,
+				padding: $padding,
+			}}
+			className="my-12 mx-0 border border-[#4d4d4d]"
+		>
 			{children}
-		</Container>
+		</main>
 	);
 };
 

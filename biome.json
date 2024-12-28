@@ -17,6 +17,9 @@
 			},
 			"complexity": {
 				"noBannedTypes": "off"
+			},
+			"a11y": {
+				"useKeyWithClickEvents": "off"
 			}
 		}
 	},

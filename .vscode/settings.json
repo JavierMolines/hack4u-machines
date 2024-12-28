@@ -9,12 +9,7 @@
 	"[json]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},
-	"cSpell.words": [
-		"Difícil",
-		"Fácil",
-		"OSEP",
-		"vitar",
-		"Vuln",
-		"Vulnerabilidad"
-	]
+	"[css]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	}
 }
