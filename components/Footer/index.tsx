@@ -1,33 +1,42 @@
-import { Container, IconLove, LinePerson } from "./styles";
 import type { IFooter } from "./types";
 
 const Footer: React.FC<IFooter> = () => {
 	const dimension = 15;
 	return (
-		<Container>
-			<p>
+		<div className="text-base w-full bg-[var(--colorGrayLight)] text-center fixed bottom-0 p-2 flex flex-col items-center gap-2 text-balance">
+			<span className="p-0 m-0">
 				Made by
-				<LinePerson target="_blank" href="https://github.com/JavierMolines/">
-					JavierVoid
-				</LinePerson>
+				<a
+					target="_blank"
+					href="https://github.com/JavierMolines/"
+					className="text-[var(--colorRedLight)] px-1 hover:text-[var(--colorRedDark)]"
+					rel="noreferrer"
+				>
+					<span>JavierVoid</span>
+				</a>
 				with more
-				<IconLove
+				<img
+					className="inline-block mx-1"
 					src="/love.svg"
 					height={dimension}
 					width={dimension}
 					alt="love"
 				/>
 				to the Hack4u community.
-			</p>
-
-			<p>
+			</span>
+			<p className="p-0 m-0">
 				Special thanks to
-				<LinePerson target="_blank" href="https://twitter.com/cheatmodes4/">
+				<a
+					target="_blank"
+					href="https://twitter.com/cheatmodes4/"
+					className="text-[var(--colorRedLight)] px-1 hover:text-[var(--colorRedDark)]"
+					rel="noreferrer"
+				>
 					@CheatMode4
-				</LinePerson>
+				</a>
 				because this page is based on their website.
 			</p>
-		</Container>
+		</div>
 	);
 };
 

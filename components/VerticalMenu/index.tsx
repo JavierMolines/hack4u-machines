@@ -1,10 +1,8 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
-import Link from "next/link";
 import { useState } from "react";
 import { handlerOverflowVertical } from "../../utils/domMethods";
 import { Footer } from "../Footer";
 import { Icon } from "../Icon";
-import { ContainerContent, FixedContainer } from "./styles";
+import { LINKS_VERTICAL_MENU } from "./data";
 import type { IVerticalMenu } from "./types";
 
 const VerticalMenu: React.FC<IVerticalMenu> = () => {
@@ -13,60 +11,38 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
 		display: "hidden",
 	});
 
-	const links = [
-		{
-			url: "/",
-			title: "Machines",
-		},
-		{
-			url: "/shortcuts",
-			title: "Shortcuts",
-		},
-		{
-			url: "/releases",
-			title: "Releases",
-		},
-		{
-			url: "https://hack4u.io/conocenos/",
-			title: "About",
-		},
-	];
-
 	const handlerClick = () => {
-		setIcon(
-			icon.svg === "menu"
-				? {
-						svg: "close",
-						display: "visible",
-					}
-				: {
-						svg: "menu",
-						display: "hidden",
-					},
-		);
-
-		handlerOverflowVertical(icon.svg === "menu");
+		const isSvgMenu = icon.svg === "menu";
+		setIcon({
+			svg: isSvgMenu ? "close" : "menu",
+			display: isSvgMenu ? "visible" : "hidden",
+		});
+		handlerOverflowVertical(isSvgMenu);
 	};
 
 	return (
 		<>
-			<FixedContainer onClick={handlerClick}>
+			<div
+				className="z-10 cursor-pointer fixed top-4 right-4"
+				onClick={handlerClick}
+			>
 				<Icon src={`/${icon.svg}.svg`} dimension={30} />
-			</FixedContainer>
+			</div>
 
-			<ContainerContent
+			<section
+				className="fixed top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-[var(--colorRedDark)]"
 				style={{
 					visibility: icon.display,
 				}}
 			>
-				{links.map(({ url, title }) => (
-					<a key={title} href={url}>
-						<h2>{title}</h2>
+				{LINKS_VERTICAL_MENU.map(({ url, title }) => (
+					<a className="text-2xl my-6 p-2" key={title} href={url}>
+						<span>{title}</span>
 					</a>
 				))}
 
 				<Footer />
-			</ContainerContent>
+			</section>
 		</>
 	);
 };

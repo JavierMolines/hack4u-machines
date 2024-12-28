@@ -17,8 +17,3 @@ Run the development server:
 npm run dev
 ```
 
-To create news component, use the command
-
-```nodejs
-npm run make :NAME_COMPONENT: v2
-```

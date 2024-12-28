@@ -2,7 +2,6 @@ import { storagesKeys } from "../../utils/definition";
 import { randomId } from "../../utils/methods";
 import { getStorage } from "../../utils/storage";
 import { MachineCard } from "../MachineCard";
-import { Container, LabelFound } from "./styles";
 import type { IContainerMachines } from "./types";
 
 const ContainerMachines: React.FC<IContainerMachines> = ({ machines }) => {
@@ -14,16 +13,19 @@ const ContainerMachines: React.FC<IContainerMachines> = ({ machines }) => {
 		}
 
 		return (
-			<LabelFound>
+			<p className="p-2 w-[99.5%] text-left">
 				Not machines found from: {searchInputParam.join(" ")}
-			</LabelFound>
+			</p>
 		);
 	};
 
 	return machines.length > 0 ? (
 		<>
-			<LabelFound>Machines found {machines.length}</LabelFound>
-			<Container>
+			<p className="p-2 w-[99.5%] text-left">
+				Machines found {machines.length}
+			</p>
+
+			<div className="mb-4 mx-2 p-4 w-[99.5%] bg-[var(--colorGrayDark)]">
 				{machines.map((data, index: number) => {
 					return (
 						<MachineCard
@@ -39,7 +41,7 @@ const ContainerMachines: React.FC<IContainerMachines> = ({ machines }) => {
 						/>
 					);
 				})}
-			</Container>
+			</div>
 		</>
 	) : (
 		<>{handlerNoMachines()}</>

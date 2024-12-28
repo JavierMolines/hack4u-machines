@@ -1,17 +1,28 @@
-import { Container, PlatformContainer } from "./styles";
 import type { IHeader } from "./types";
 
 const Header: React.FC<IHeader> = ({ totalMachines }) => {
 	return (
-		<Container>
-			<h1>S4vitar Machine&apos;s Resolutions</h1>
-			<h2>Loaded Machines</h2>
-			<PlatformContainer>
+		<main className="py-6 flex flex-col justify-center items-center gap-4">
+			<h1
+				className="text-shadow-sm text-center text-3xl"
+				style={{
+					textShadow: "0px 0px 10px #000000",
+					color: "var(--colorRedLight)",
+				}}
+			>
+				S4vitar Machine&apos;s Resolutions
+			</h1>
+
+			<h2 className="p-0 m-0 text-2xl">Loaded Machines</h2>
+
+			<div className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4 text-center">
 				<p>HackTheBox: {totalMachines.htb ?? 0}</p>
 				<p>VulnHub: {totalMachines.vuln ?? 0}</p>
-				<p>PortSwigger: {totalMachines.swigger ?? 0}</p>
-			</PlatformContainer>
-		</Container>
+				<p className="col-span-2 lg:col-span-1">
+					PortSwigger: {totalMachines.swigger ?? 0}
+				</p>
+			</div>
+		</main>
 	);
 };
 

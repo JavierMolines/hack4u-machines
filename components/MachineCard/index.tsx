@@ -13,15 +13,6 @@ import {
 	storagesKeys,
 } from "../../utils/definition";
 
-import {
-	CardLabel,
-	CertificationsContainer,
-	Container,
-	ContainerExpand,
-	TechniquesContainer,
-	TextWithIcon,
-} from "./styles";
-
 const MachineCard: React.FC<IMachineCard> = ({
 	name,
 	ip,
@@ -70,7 +61,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 				const regExpTmp = new RegExp(optionInput, "ig");
 				if (regExpTmp.test(technique)) {
 					return (
-						<li key={`${technique} ${index}`}>
+						<li className="list-item" key={`${technique} ${index}`}>
 							<span style={{ color: "#e6e600" }}>{technique}</span>
 						</li>
 					);
@@ -79,7 +70,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 		}
 
 		return (
-			<li key={`${technique} ${index}`}>
+			<li className="list-item" key={`${technique} ${index}`}>
 				<span>{technique}</span>
 			</li>
 		);
@@ -90,10 +81,10 @@ const MachineCard: React.FC<IMachineCard> = ({
 			return <></>;
 		}
 		return (
-			<TextWithIcon>
+			<div className="flex items-center justify-start gap-1">
 				<Icon src={`/${iconByState(state)}.svg`} dimension={dimensionIcon} />
 				<p>{state}</p>
-			</TextWithIcon>
+			</div>
 		);
 	};
 
@@ -102,10 +93,10 @@ const MachineCard: React.FC<IMachineCard> = ({
 			return <></>;
 		}
 		return (
-			<TextWithIcon>
+			<div className="flex items-center justify-start gap-1">
 				<Icon src={`/${iconByPlatform(os)}.svg`} dimension={dimensionIcon} />
 				<p>{os}</p>
-			</TextWithIcon>
+			</div>
 		);
 	};
 
@@ -116,29 +107,29 @@ const MachineCard: React.FC<IMachineCard> = ({
 			<>
 				<p>Skills:</p>
 				{isMobile ? (
-					<ul>
+					<ul className="block list-disc my-4 mx-0 pl-10 [unicode-bidi:isolate]">
 						{[...dataTech.right, ...dataTech.left].map((technique, index) =>
 							generateLabelSkill(technique, index),
 						)}
 					</ul>
 				) : (
-					<TechniquesContainer>
-						<ul>
+					<div className="grid grid-cols-[48%_48%] justify-between">
+						<ul className="block list-disc my-4 mx-0 pl-10 [unicode-bidi:isolate]">
 							{dataTech.left.map((technique, index) =>
 								generateLabelSkill(technique, index),
 							)}
 						</ul>
-						<ul>
+						<ul className="block list-disc my-4 mx-0 pl-10 [unicode-bidi:isolate]">
 							{dataTech.right.map((technique, index) =>
 								generateLabelSkill(technique, index),
 							)}
 						</ul>
-					</TechniquesContainer>
+					</div>
 				)}
 
-				<CertificationsContainer>
+				<div className="border-l-4 border-[var(--colorRedLight)] my-4 p-2 w-full bg-[var(--colorGrayLight)] rounded">
 					<span>{certCollection.join(" ")}</span>
-				</CertificationsContainer>
+				</div>
 			</>
 		);
 	};
@@ -150,47 +141,60 @@ const MachineCard: React.FC<IMachineCard> = ({
 		}
 	}, []);
 
+	const gridClassNameByPlatform =
+		platform === mapInfo.swigger
+			? "grid-cols-[70%_30%] lg:grid-cols-[30%_25%_15%_15%_5%]"
+			: "grid-cols-[33%_33%_33%] lg:grid-cols-[20%_10%_10%_10%_15%_15%_5%]";
+
 	return (
-		<Container className="machineItem" id={identifier}>
-			<CardLabel platform={platform}>
+		<header
+			className="text-base border-b border-gray-500 border-t-transparent border-r-transparent border-l-transparent machineItem"
+			id={identifier}
+		>
+			<div
+				className={`py-4 grid ${gridClassNameByPlatform} gap-y-4 lg:gap-0 justify-between`}
+			>
 				<Link
 					id={`${identifier}youtube`}
 					target={video}
 					color="var(--colorRedLight)"
 				>
-					<TextWithIcon>
+					<div className="flex items-center justify-start gap-1">
 						{!isMobile && <Icon src={"/link.svg"} dimension={dimensionIcon} />}
 						<p>{name}</p>
-					</TextWithIcon>
+					</div>
 				</Link>
 
-				<TextWithIcon>{platformRender()}</TextWithIcon>
+				<div className="flex items-center justify-start gap-1">
+					{platformRender()}
+				</div>
 
 				{renderDifficult()}
 
 				{renderOperativeSystem()}
 
 				{!isMobile && (
-					<TextWithIcon>
+					<div className="flex items-center justify-start gap-1">
 						<p>Certifications {certCollection.length}</p>
-					</TextWithIcon>
+					</div>
 				)}
 
-				<TextWithIcon>
+				<div className="flex items-center justify-start gap-1">
 					<p>Skills used {techCollection.length}</p>
-				</TextWithIcon>
+				</div>
 
-				<ContainerExpand
+				<div
+					className="w-full flex justify-center items-center"
 					id={`${identifier}button`}
 					style={{ cursor: "pointer" }}
 					onClick={handlerClick}
 				>
 					<Icon src={iconArrowName} dimension={dimension} />
-				</ContainerExpand>
-			</CardLabel>
+				</div>
+			</div>
 
 			{tabContentExpand()}
-		</Container>
+		</header>
 	);
 };
 
