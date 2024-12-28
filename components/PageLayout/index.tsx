@@ -10,11 +10,11 @@ const PageLayout: React.FC<IPageLayout> = ({ children, title }) => {
 				<meta name="description" content="Machines website Hack4u" />
 			</Head>
 
-			<VerticalMenu />
-
 			<main className="flex flex-col items-center mx-auto px-4 sm:px-0 md:w-[750px] lg:w-[970px] xl:w-[1170px]">
 				{children}
 			</main>
+
+			<VerticalMenu />
 		</>
 	);
 };

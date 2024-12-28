@@ -29,8 +29,8 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
 				<Icon src={`/${icon.svg}.svg`} dimension={30} />
 			</div>
 
-			<div
-				className="z-11 fixed w-full h-full flex flex-col justify-center items-center bg-[var(--colorRedDark)]"
+			<section
+				className="fixed top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-[var(--colorRedDark)]"
 				style={{
 					visibility: icon.display,
 				}}
@@ -42,7 +42,7 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
 				))}
 
 				<Footer />
-			</div>
+			</section>
 		</>
 	);
 };
