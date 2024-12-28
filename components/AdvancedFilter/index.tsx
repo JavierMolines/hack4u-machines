@@ -50,8 +50,8 @@ const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
 	}, []);
 
 	return (
-		<div className="rounded-lg mt-4 mb-0 p-4 bg-gray-800 flex flex-col items-end">
-			<div className="w-full flex flex-col justify-start">
+		<div className="rounded-lg mt-4 mb-0 p-4 bg-[#242525] flex flex-col">
+			<div className="mt-1 flex flex-col lg:flex-row justify-start gap-4">
 				{optionsFilters.map((option, index) => (
 					<div
 						className="flex flex-row gap-2 items-center justify-start"
@@ -70,10 +70,10 @@ const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
 				))}
 			</div>
 
-			<div className="flex w-full gap-2 mt-4 justify-center items-center">
+			<div className="flex gap-2 mt-4 justify-end">
 				<button
 					type="button"
-					className="w-24 rounded-lg text-white border-0 outline-none text-lg py-2 bg-red-700 cursor-pointer"
+					className="w-24 rounded-lg text-white border-0 outline-none text-lg py-2 bg-[#b01214] hover:bg-[#8a0f11] cursor-pointer"
 					id="advancedFilterButtonClear"
 					onClick={buttonActions.clear}
 				>
@@ -82,7 +82,7 @@ const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
 
 				<button
 					type="button"
-					className="w-24 rounded-lg text-white border-0 outline-none text-lg py-2 bg-red-700 cursor-pointer"
+					className="w-24 rounded-lg text-white border-0 outline-none text-lg py-2 bg-[#b01214] hover:bg-[#8a0f11] cursor-pointer"
 					id="advancedFilterButtonAll"
 					onClick={buttonActions.all}
 				>
@@ -91,7 +91,7 @@ const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
 
 				<button
 					type="button"
-					className="w-24 rounded-lg text-white border-0 outline-none text-lg py-2 bg-red-700 cursor-pointer"
+					className="w-24 rounded-lg text-white border-0 outline-none text-lg py-2 bg-[#b01214] hover:bg-[#8a0f11] cursor-pointer"
 					id="advancedFilterButtonApply"
 					onClick={buttonActions.click}
 				>
