@@ -30,7 +30,7 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
 			</div>
 
 			<div
-				className="z-11 fixed w-full h-full flex flex-col justify-center items-center bg-[#b01215df]"
+				className="z-11 fixed w-full h-full flex flex-col justify-center items-center bg-[var(--colorRedDark)]"
 				style={{
 					visibility: icon.display,
 				}}

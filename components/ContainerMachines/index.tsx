@@ -13,7 +13,7 @@ const ContainerMachines: React.FC<IContainerMachines> = ({ machines }) => {
 		}
 
 		return (
-			<p className="px-1 w-[99.5%] text-left">
+			<p className="p-2 w-[99.5%] text-left">
 				Not machines found from: {searchInputParam.join(" ")}
 			</p>
 		);
@@ -21,11 +21,11 @@ const ContainerMachines: React.FC<IContainerMachines> = ({ machines }) => {
 
 	return machines.length > 0 ? (
 		<>
-			<p className="px-1 w-[99.5%] text-left">
+			<p className="p-2 w-[99.5%] text-left">
 				Machines found {machines.length}
 			</p>
 
-			<div className="mx-2 my-1 p-4 w-[99.5%] bg-gray-800">
+			<div className="mx-2 p-4 w-[99.5%] bg-[var(--colorGrayDark)]">
 				{machines.map((data, index: number) => {
 					return (
 						<MachineCard

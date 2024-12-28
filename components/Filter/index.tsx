@@ -103,12 +103,12 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
 			<form
 				autoComplete="off"
 				onSubmit={onSubmit}
-				className="grid grid-cols-2 lg:grid-cols-[5%_80%_15%] bg-[#242525]"
+				className="grid grid-cols-2 lg:grid-cols-[5%_80%_15%] bg-[var(--colorGrayDark)]"
 			>
 				<div
 					id="machinesButtonFilter"
 					onClick={filterOnClick}
-					className="order-0 flex justify-center cursor-pointer rounded-l-lg col-span-1 bg-[#b01214] hover:bg-[#8a0f11] text-white text-center p-2"
+					className="order-0 flex justify-center cursor-pointer rounded-l-lg col-span-1 bg-[var(--colorRedDark)] hover:bg-[#8a0f11] text-white text-center p-2"
 				>
 					<Icon src="/filter.svg" dimension={dimension} />
 				</div>
@@ -132,7 +132,7 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
 
 				<button
 					type="submit"
-					className="order-2 lg:order-6 rounded-r-lg col-span-1 bg-[#b01214] hover:bg-[#8a0f11] text-white text-lg p-2"
+					className="order-2 lg:order-6 rounded-r-lg col-span-1 bg-[var(--colorRedDark)] hover:bg-[#8a0f11] text-white text-lg p-2"
 				>
 					Search
 				</button>
