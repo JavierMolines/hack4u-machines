@@ -25,7 +25,7 @@ const ContainerMachines: React.FC<IContainerMachines> = ({ machines }) => {
 				Machines found {machines.length}
 			</p>
 
-			<div className="mx-2 p-4 w-[99.5%] bg-[var(--colorGrayDark)]">
+			<div className="mb-4 mx-2 p-4 w-[99.5%] bg-[var(--colorGrayDark)]">
 				{machines.map((data, index: number) => {
 					return (
 						<MachineCard

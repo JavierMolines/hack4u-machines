@@ -61,7 +61,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 				const regExpTmp = new RegExp(optionInput, "ig");
 				if (regExpTmp.test(technique)) {
 					return (
-						<li key={`${technique} ${index}`}>
+						<li className="list-item" key={`${technique} ${index}`}>
 							<span style={{ color: "#e6e600" }}>{technique}</span>
 						</li>
 					);
@@ -70,7 +70,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 		}
 
 		return (
-			<li key={`${technique} ${index}`}>
+			<li className="list-item" key={`${technique} ${index}`}>
 				<span>{technique}</span>
 			</li>
 		);
@@ -107,19 +107,19 @@ const MachineCard: React.FC<IMachineCard> = ({
 			<>
 				<p>Skills:</p>
 				{isMobile ? (
-					<ul>
+					<ul className="block list-disc my-4 mx-0 pl-10 [unicode-bidi:isolate]">
 						{[...dataTech.right, ...dataTech.left].map((technique, index) =>
 							generateLabelSkill(technique, index),
 						)}
 					</ul>
 				) : (
 					<div className="grid grid-cols-[48%_48%] justify-between">
-						<ul className="flex flex-col m-0 p-4">
+						<ul className="block list-disc my-4 mx-0 pl-10 [unicode-bidi:isolate]">
 							{dataTech.left.map((technique, index) =>
 								generateLabelSkill(technique, index),
 							)}
 						</ul>
-						<ul>
+						<ul className="block list-disc my-4 mx-0 pl-10 [unicode-bidi:isolate]">
 							{dataTech.right.map((technique, index) =>
 								generateLabelSkill(technique, index),
 							)}
@@ -127,7 +127,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 					</div>
 				)}
 
-				<div className="border-l-4 border-red-500 my-4 p-2 w-full bg-gray-200 rounded">
+				<div className="border-l-4 border-[var(--colorRedLight)] my-4 p-2 w-full bg-[var(--colorGrayLight)] rounded">
 					<span>{certCollection.join(" ")}</span>
 				</div>
 			</>
@@ -141,12 +141,19 @@ const MachineCard: React.FC<IMachineCard> = ({
 		}
 	}, []);
 
+	const gridClassNameByPlatform =
+		platform === mapInfo.swigger
+			? "grid-cols-[70%_30%] lg:grid-cols-[30%_25%_15%_15%_5%]"
+			: "grid-cols-[33%_33%_33%] lg:grid-cols-[20%_10%_10%_10%_15%_15%_5%]";
+
 	return (
 		<header
 			className="text-base border-b border-gray-500 border-t-transparent border-r-transparent border-l-transparent machineItem"
 			id={identifier}
 		>
-			<div className="grid grid-cols-3 justify-between">
+			<div
+				className={`py-4 grid ${gridClassNameByPlatform} gap-y-4 lg:gap-0 justify-between`}
+			>
 				<Link
 					id={`${identifier}youtube`}
 					target={video}
