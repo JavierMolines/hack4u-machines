@@ -23,6 +23,7 @@ const Icon: React.FC<IIcon> = ({
 					strokeWidth="2"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					className="cursor-pointer select-none"
 				>
 					<path d="M12 5v13M5 12l7 7 7-7" />
 				</svg>
@@ -42,6 +43,7 @@ const Icon: React.FC<IIcon> = ({
 					strokeWidth="2"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					className="cursor-pointer select-none"
 				>
 					<path d="M5 12h13M12 5l7 7-7 7" />
 				</svg>
@@ -61,6 +63,7 @@ const Icon: React.FC<IIcon> = ({
 					strokeWidth="2"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					className="select-none"
 				>
 					<line x1="18" y1="6" x2="6" y2="18" />
 					<line x1="6" y1="6" x2="18" y2="18" />
@@ -130,6 +133,7 @@ const Icon: React.FC<IIcon> = ({
 					strokeWidth="2"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					className="select-none"
 				>
 					<line x1="4" y1="21" x2="4" y2="14" />
 					<line x1="4" y1="10" x2="4" y2="3" />
@@ -275,6 +279,7 @@ const Icon: React.FC<IIcon> = ({
 					strokeWidth="2"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					className="select-none"
 				>
 					<line x1="3" y1="12" x2="21" y2="12" />
 					<line x1="3" y1="6" x2="21" y2="6" />
@@ -296,6 +301,7 @@ const Icon: React.FC<IIcon> = ({
 					strokeWidth="2"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					className="select-none"
 				>
 					<circle cx="11" cy="11" r="8" />
 					<line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -337,6 +343,7 @@ const Icon: React.FC<IIcon> = ({
 					strokeWidth="2"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					className="cursor-pointer select-none"
 				>
 					<rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
 				</svg>
@@ -357,6 +364,7 @@ const Icon: React.FC<IIcon> = ({
 					strokeWidth="2"
 					strokeLinecap="round"
 					strokeLinejoin="round"
+					className="cursor-pointer select-none"
 				>
 					<polyline points="9 11 12 14 22 4" />
 					<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
