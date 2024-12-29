@@ -35,7 +35,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 			? techCollection.length / 2
 			: (techCollection.length + 1) / 2;
 	const handlerClick = () => setCompress(!compress);
-	const iconArrowName = `/${compress ? "arrowDown" : "arrowRight"}.svg`;
+	const iconArrowName = compress ? "arrowDown" : "arrowRight";
 	const dataTech = {
 		left: techCollection.slice(0, totalTechCollection),
 		right: techCollection.slice(totalTechCollection),
@@ -44,7 +44,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 	const platformRender = () => {
 		if (platform === mapInfo.vuln) {
 			return (
-				<Link target={ip} color="#66ccff">
+				<Link target={ip} className="text-[#66ccff] hover:text-[#1ab2ff]">
 					{platform}
 				</Link>
 			);
@@ -82,7 +82,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 		}
 		return (
 			<div className="flex items-center justify-start gap-1">
-				<Icon src={`/${iconByState(state)}.svg`} dimension={dimensionIcon} />
+				<Icon id={iconByState(state)} dimension={dimensionIcon} />
 				<p>{state}</p>
 			</div>
 		);
@@ -94,7 +94,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 		}
 		return (
 			<div className="flex items-center justify-start gap-1">
-				<Icon src={`/${iconByPlatform(os)}.svg`} dimension={dimensionIcon} />
+				<Icon id={iconByPlatform(os)} dimension={dimensionIcon} />
 				<p>{os}</p>
 			</div>
 		);
@@ -157,10 +157,10 @@ const MachineCard: React.FC<IMachineCard> = ({
 				<Link
 					id={`${identifier}youtube`}
 					target={video}
-					color="var(--colorRedLight)"
+					className="text-[var(--colorRedLight)] hover:text-[var(--colorRedDark)]"
 				>
 					<div className="flex items-center justify-start gap-1">
-						{!isMobile && <Icon src={"/link.svg"} dimension={dimensionIcon} />}
+						{!isMobile && <Icon id="link" dimension={dimensionIcon} />}
 						<p>{name}</p>
 					</div>
 				</Link>
@@ -189,7 +189,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 					style={{ cursor: "pointer" }}
 					onClick={handlerClick}
 				>
-					<Icon src={iconArrowName} dimension={dimension} />
+					<Icon id={iconArrowName} dimension={dimension} />
 				</div>
 			</div>
 

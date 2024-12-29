@@ -1,8 +1,29 @@
 // Types for Icon
 
+type IconName =
+	| "arrowDown"
+	| "arrowRight"
+	| "close"
+	| "easy"
+	| "favicon"
+	| "filter"
+	| "hard"
+	| "insane"
+	| "link"
+	| "linux"
+	| "love"
+	| "medium"
+	| "menu"
+	| "search"
+	| "settings"
+	| "square"
+	| "squareCheck"
+	| "windows";
+
 export interface IIcon {
-	src: string;
+	id: IconName;
 	dimension: number;
 	click?: any;
-	id?: string;
+	className?: string;
+	nameId?: string;
 }

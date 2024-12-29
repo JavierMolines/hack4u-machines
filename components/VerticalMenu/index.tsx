@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 import { handlerOverflowVertical } from "../../utils/domMethods";
 import { Footer } from "../Footer";
@@ -26,7 +27,7 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
 				className="z-10 cursor-pointer fixed top-4 right-4"
 				onClick={handlerClick}
 			>
-				<Icon src={`/${icon.svg}.svg`} dimension={30} />
+				<Icon id={icon.svg} dimension={30} />
 			</div>
 
 			<section
@@ -35,11 +36,26 @@ const VerticalMenu: React.FC<IVerticalMenu> = () => {
 					visibility: icon.display,
 				}}
 			>
-				{LINKS_VERTICAL_MENU.map(({ url, title }) => (
-					<a className="text-2xl my-6 p-2" key={title} href={url}>
-						<span>{title}</span>
-					</a>
-				))}
+				{LINKS_VERTICAL_MENU.map(({ url, title, useLink }) => {
+					if (useLink) {
+						return (
+							<Link
+								onClick={handlerClick}
+								className="text-2xl my-6 p-2"
+								key={title}
+								href={url}
+							>
+								<span>{title}</span>
+							</Link>
+						);
+					}
+
+					return (
+						<a className="text-2xl my-6 p-2" key={title} href={url}>
+							<span>{title}</span>
+						</a>
+					);
+				})}
 
 				<Footer />
 			</section>

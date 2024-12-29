@@ -1,20 +1,24 @@
+import { PageLayout } from "../PageLayout";
 import type { IBlogPost } from "./types";
 
 const BlogPost: React.FC<IBlogPost> = ({
 	children,
-	$maxWidth = "75ch",
-	$padding = "0rem 3rem",
+	maxWidth = "85ch",
+	padding = "0rem 3rem",
+	title,
 }) => {
 	return (
-		<main
-			style={{
-				maxWidth: $maxWidth,
-				padding: $padding,
-			}}
-			className="my-12 mx-0 border border-[#4d4d4d]"
-		>
-			{children}
-		</main>
+		<PageLayout title={title}>
+			<main
+				style={{
+					maxWidth,
+					padding,
+				}}
+				className="my-12 mx-0 border border-[#4d4d4d]"
+			>
+				{children}
+			</main>
+		</PageLayout>
 	);
 };
 
