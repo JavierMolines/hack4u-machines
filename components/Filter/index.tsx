@@ -110,12 +110,12 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
 					onClick={filterOnClick}
 					className="order-0 flex justify-center cursor-pointer rounded-l-lg col-span-1 bg-[var(--colorRedDark)] hover:bg-[#8a0f11] text-white text-center p-2"
 				>
-					<Icon src="/filter.svg" dimension={dimension} />
+					<Icon id="filter" dimension={dimension} />
 				</div>
 
 				<div className="order-3 lg:order-2 col-span-2 lg:col-span-1 grid grid-cols-[10%_1fr] lg:grid-cols-[6%_1fr]">
 					<div className="bg-transparent flex justify-center col-span-1 bg-blue-500 text-white text-center p-2 relative">
-						<Icon src="/search.svg" dimension={dimension} />
+						<Icon id="search" dimension={dimension} />
 						{generateCountSelectOptions()}
 					</div>
 

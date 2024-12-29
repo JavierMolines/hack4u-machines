@@ -3,7 +3,8 @@
 import type { ReactNode } from "react";
 
 export interface IBlogPost {
-	$maxWidth?: string;
-	$padding?: string;
+	maxWidth?: string;
+	padding?: string;
 	children: ReactNode;
+	title: string;
 }

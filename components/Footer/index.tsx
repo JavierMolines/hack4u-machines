@@ -1,7 +1,7 @@
+import { Icon } from "../Icon";
 import type { IFooter } from "./types";
 
 const Footer: React.FC<IFooter> = () => {
-	const dimension = 15;
 	return (
 		<div className="text-base w-full bg-[var(--colorGrayLight)] text-center fixed bottom-0 p-2 flex flex-col items-center gap-2 text-balance">
 			<span className="p-0 m-0">
@@ -15,13 +15,7 @@ const Footer: React.FC<IFooter> = () => {
 					<span>JavierVoid</span>
 				</a>
 				with more
-				<img
-					className="inline-block mx-1"
-					src="/love.svg"
-					height={dimension}
-					width={dimension}
-					alt="love"
-				/>
+				<Icon id="love" className="inline-block mx-1" dimension={15} />
 				to the Hack4u community.
 			</span>
 			<p className="p-0 m-0">

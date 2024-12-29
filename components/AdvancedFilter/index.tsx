@@ -60,8 +60,8 @@ const AdvancedFilter: React.FC<IAdvancedFilter> = ({ callback }) => {
 						<p className="capitalize">{option.title}</p>
 						<Icon
 							click={() => handlerOptionClick(option.id)}
-							id={`advancedFilterOption${option.id}`}
-							src={`/${defineFigure(option.id)}.svg`}
+							nameId={`advancedFilterOption${option.id}`}
+							id={defineFigure(option.id)}
 							dimension={dimensionIcon}
 						/>
 					</div>
