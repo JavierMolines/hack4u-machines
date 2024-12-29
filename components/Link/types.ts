@@ -4,6 +4,6 @@ import type { ReactNode } from "react";
 export interface ILink {
 	children: ReactNode;
 	target: string;
-	color: string;
+	className: string;
 	id?: string;
 }

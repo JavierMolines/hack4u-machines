@@ -44,7 +44,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 	const platformRender = () => {
 		if (platform === mapInfo.vuln) {
 			return (
-				<Link target={ip} color="#66ccff">
+				<Link target={ip} className="text-[#66ccff] hover:text-[#1ab2ff]">
 					{platform}
 				</Link>
 			);
@@ -157,7 +157,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 				<Link
 					id={`${identifier}youtube`}
 					target={video}
-					color="var(--colorRedLight)"
+					className="text-[var(--colorRedLight)] hover:text-[var(--colorRedDark)]"
 				>
 					<div className="flex items-center justify-start gap-1">
 						{!isMobile && <Icon id="link" dimension={dimensionIcon} />}
