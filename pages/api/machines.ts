@@ -18,6 +18,7 @@ export default async function handler(
 		htb: 0,
 		vuln: 0,
 		swigger: 0,
+		challenge: 0,
 	};
 
 	for (const machine of urlMachines) {
@@ -95,6 +96,24 @@ export default async function handler(
 							info.childNodes[2].textContent.trim(),
 						);
 					}
+				} else if (machine.platform === mapInfo.challenge) {
+					const video = info.childNodes[4].textContent.trim();
+
+					if (!regExpVideo.test(video)) continue;
+
+					dataMachine.video = video;
+					dataMachine.certification = info.childNodes[2].textContent.trim();
+					dataMachine.platform = machine.platform;
+					dataMachine.name = info.childNodes[1].textContent.trim();
+					dataMachine.state = info.childNodes[5].textContent.trim();
+					dataMachine.techniques = info.childNodes[3].textContent
+						.trim()
+						.replaceAll("\n", "")
+						.split(",")
+						.join("\n");
+
+					totalMachines.challenge++;
+					newData.push(dataMachine);
 				}
 			}
 		}

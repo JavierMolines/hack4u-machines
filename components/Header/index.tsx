@@ -22,7 +22,7 @@ const Header: React.FC<IHeader> = ({ totalMachines }) => {
 				<p>VulnHub: {totalMachines.vuln ?? 0}</p>
 				<p>PortSwigger: {totalMachines.swigger ?? 0}</p>
 				<p className="col-span-2 lg:col-span-1">
-					HTB-Challenge: {totalMachines.vuln ?? 0}
+					HTB-Challenge: {totalMachines.challenge ?? 0}
 				</p>
 			</div>
 		</main>

@@ -28,6 +28,8 @@ const randomId = (): string => {
 
 const iconByState = (stateMachine: string) => {
 	switch (stateMachine) {
+		case "Very Easy":
+			return "veryeasy";
 		case "Easy":
 			return "easy";
 		case "Medium":

@@ -15,6 +15,7 @@ const mapInfo = {
 	htb: "HackTheBox",
 	vuln: "VulnHub",
 	swigger: "PortSwigger",
+	challenge: "HTB-Challenge",
 };
 
 const mappingOfState: any = {
@@ -25,6 +26,10 @@ const mappingOfState: any = {
 };
 
 const urlMachines = [
+	{
+		platform: mapInfo.challenge,
+		url: `${urlBase}&gid=1875327501`,
+	},
 	{
 		platform: mapInfo.swigger,
 		url: `${urlBase}&gid=680381051`,
