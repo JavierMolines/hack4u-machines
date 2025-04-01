@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
+		"dev": "next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
 		"lint": "biome check .",
@@ -11,6 +11,7 @@
 		"update": "rm -rf node_modules && rm package-lock.json && npm i"
 	},
 	"dependencies": {
+		"@tailwindcss/postcss": "4.0.17",
 		"@vercel/analytics": "1.5.0",
 		"axios": "1.8.4",
 		"next": "15.2.4",
@@ -23,8 +24,8 @@
 		"@types/node": "22.13.14",
 		"@types/react": "19.0.12",
 		"@types/react-dom": "19.0.4",
-		"typescript": "5.8.2",
 		"postcss": "8.5.3",
-		"tailwindcss": "4.0.17"
+		"tailwindcss": "4.0.17",
+		"typescript": "5.8.2"
 	}
 }

@@ -3,7 +3,7 @@ import type { IFooter } from "./types";
 
 const Footer: React.FC<IFooter> = () => {
 	return (
-		<div className="text-base w-full bg-[var(--colorGrayLight)] text-center fixed bottom-0 p-2 flex flex-col items-center gap-2 text-balance">
+		<div className="text-xs w-full bg-[var(--colorGrayLight)] text-center fixed bottom-0 p-2 flex flex-col items-center gap-2 text-balance">
 			<span className="p-0 m-0">
 				Made by
 				<a

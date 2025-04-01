@@ -114,7 +114,7 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
 				</div>
 
 				<div className="order-3 lg:order-2 col-span-2 lg:col-span-1 grid grid-cols-[10%_1fr] lg:grid-cols-[6%_1fr]">
-					<div className="bg-transparent flex justify-center col-span-1 bg-blue-500 text-white text-center p-2 relative">
+					<div className="bg-transparent flex justify-center col-span-1 text-white text-center p-2 relative">
 						<Icon id="search" dimension={dimension} />
 						{generateCountSelectOptions()}
 					</div>
@@ -126,13 +126,13 @@ const Filter: React.FC<IFilter> = ({ callbackShowMachines }) => {
 						autoComplete="off"
 						ref={inputFilter}
 						placeholder="Filter for anything you want: (Ex: HackTheBox Medium Active Directory OSEP Kerberos)"
-						className="text-lg outline-none bg-transparent col-span-1 bg-green-500 text-white p-2"
+						className="text-lg outline-none bg-transparent col-span-1 text-white p-2 placeholder-gray-400"
 					/>
 				</div>
 
 				<button
 					type="submit"
-					className="order-2 lg:order-6 rounded-r-lg col-span-1 bg-[var(--colorRedDark)] hover:bg-[#8a0f11] text-white text-lg p-2"
+					className="cursor-pointer order-2 lg:order-6 rounded-r-lg col-span-1 bg-[var(--colorRedDark)] hover:bg-[#8a0f11] text-white text-lg p-2"
 				>
 					Search
 				</button>
