@@ -4,6 +4,7 @@ interface IMapTotalMachines {
 	htb: number;
 	vuln: number;
 	swigger: number;
+	challenge: number;
 }
 
 export interface IHeader {

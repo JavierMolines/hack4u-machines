@@ -1,5 +1,23 @@
 export const PROJECT_VERSIONS = [
 	{
+		version: "1.1.4",
+		changes: [
+			"The NextJS version was updated (15.2.4 -> 15.3.5)",
+			"Many packages in the package.json were updated along with the Next.js update",
+			"A bug was resolved related to a change in the way Google grouped content via HTML when retrieving data from the Excel file. The solution? Switch to .csv format",
+			"Add HTB - Challenge.. comming soon",
+		],
+		date: "05/07/2025",
+	},
+	{
+		version: "1.1.3",
+		changes: [
+			"The NextJS version was updated (14.2.22 -> 15.2.4)",
+			"Many packages in the package.json were updated along with the Next.js update",
+		],
+		date: "01/04/2025",
+	},
+	{
 		version: "1.1.2",
 		changes: [
 			"The NextJS version was updated (14.2.4 -> 14.2.22)",

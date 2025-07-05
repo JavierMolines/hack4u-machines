@@ -1,6 +1,6 @@
 import { mappingOfState } from "./definition";
 
-const textParseTrim = (node: any) => node?.textContent?.trim();
+const textParseTrim = (node: any) => node?.trim();
 const iconByPlatform = (inPlatform: string) =>
 	inPlatform === "Windows" ? "windows" : "linux";
 
@@ -28,6 +28,8 @@ const randomId = (): string => {
 
 const iconByState = (stateMachine: string) => {
 	switch (stateMachine) {
+		case "Very Easy":
+			return "veryeasy";
 		case "Easy":
 			return "easy";
 		case "Medium":

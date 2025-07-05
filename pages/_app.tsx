@@ -4,15 +4,12 @@ import { Roboto } from "next/font/google";
 import { MachinesProvider } from "../context/MachineContent";
 import "../styles/globals.css";
 
-const inter = Roboto({
-	subsets: ["latin"],
-	weight: "300",
-});
+const roboto = Roboto({ subsets: ["latin"], weight: ["400"] });
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<MachinesProvider>
-			<main className={inter.className}>
+			<main className={roboto.className}>
 				<Component {...pageProps} />
 			</main>
 			<Analytics />

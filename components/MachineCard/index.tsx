@@ -80,8 +80,11 @@ const MachineCard: React.FC<IMachineCard> = ({
 		if (state === "") {
 			return <></>;
 		}
+
+		const customClass = platform === mapInfo.challenge ? "col-span-2" : "";
+
 		return (
-			<div className="flex items-center justify-start gap-1">
+			<div className={`flex items-center justify-start gap-1 ${customClass}`}>
 				<Icon id={iconByState(state)} dimension={dimensionIcon} />
 				<p>{state}</p>
 			</div>
@@ -141,10 +144,15 @@ const MachineCard: React.FC<IMachineCard> = ({
 		}
 	}, []);
 
-	const gridClassNameByPlatform =
-		platform === mapInfo.swigger
-			? "grid-cols-[70%_30%] lg:grid-cols-[30%_25%_15%_15%_5%]"
-			: "grid-cols-[33%_33%_33%] lg:grid-cols-[20%_10%_10%_10%_15%_15%_5%]";
+	const classHandler = {
+		[mapInfo.swigger]: "grid-cols-[70%_30%] lg:grid-cols-[30%_25%_15%_15%_5%]",
+		[mapInfo.challenge]:
+			"grid-cols-[50%_50%] lg:grid-cols-[20%_10%_10%_10%_15%_15%_5%]",
+		default:
+			"grid-cols-[33%_33%_33%] lg:grid-cols-[20%_10%_10%_10%_15%_15%_5%]",
+	};
+
+	const gridByPlatform = classHandler[platform] ?? classHandler.default;
 
 	return (
 		<header
@@ -152,7 +160,7 @@ const MachineCard: React.FC<IMachineCard> = ({
 			id={identifier}
 		>
 			<div
-				className={`py-4 grid ${gridClassNameByPlatform} gap-y-4 lg:gap-0 justify-between`}
+				className={`py-4 grid ${gridByPlatform} gap-y-4 lg:gap-0 justify-between`}
 			>
 				<Link
 					id={`${identifier}youtube`}

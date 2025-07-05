@@ -2,9 +2,9 @@
 	"recommendations": [
 		"usernamehw.errorlens",
 		"mhutchie.git-graph",
-		"styled-components.vscode-styled-components",
 		"jock.svg",
 		"biomejs.biome",
-		"streetsidesoftware.code-spell-checker"
+		"streetsidesoftware.code-spell-checker",
+		"bradlc.vscode-tailwindcss"
 	]
 }

@@ -1,6 +1,7 @@
 // Types for Icon
 
 type IconName =
+	| "veryeasy"
 	| "arrowDown"
 	| "arrowRight"
 	| "close"
