@@ -4,7 +4,7 @@ const sortHight = 5450;
 const highLightFilter = 6489;
 
 const urlBase =
-	"https://docs.google.com/spreadsheets/u/0/d/1dzvaGlT_0xnT-PGO27Z_4prHgA8PHIpErmoWdlUrSoA/gviz/tq?tqx=out:html";
+	"https://docs.google.com/spreadsheets/d/1dzvaGlT_0xnT-PGO27Z_4prHgA8PHIpErmoWdlUrSoA/export?format=csv&id=1dzvaGlT_0xnT-PGO27Z_4prHgA8PHIpErmoWdlUrSoA";
 
 const storagesKeys = {
 	filterOption: "filters",
@@ -26,10 +26,10 @@ const mappingOfState: any = {
 };
 
 const urlMachines = [
-	{
+	/* {
 		platform: mapInfo.challenge,
 		url: `${urlBase}&gid=1875327501`,
-	},
+	}, */
 	{
 		platform: mapInfo.swigger,
 		url: `${urlBase}&gid=680381051`,

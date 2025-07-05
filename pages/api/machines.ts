@@ -1,18 +1,16 @@
 import axios from "axios";
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import parse from "node-html-parser";
 import { mapInfo, urlMachines } from "../../utils/definition";
-import { generate, getParseState, textParseTrim } from "../../utils/methods";
+import { getParseState } from "../../utils/methods";
+import { parseTextToObjectsHTB } from "../../utils/csv/htb";
+import { parseTextToObjectsVULN } from "../../utils/csv/vulnhub";
+import { parseTextToObjectsSWIGGER } from "../../utils/csv/swigger";
 
 export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse,
 ) {
-	let currentVulnerability = "";
-	const mapping: any = {};
 	const newData: any = [];
-	const regExpIp = /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/i;
 	const regExpVideo = /https:\/\/www.youtube.com/i;
 	const totalMachines = {
 		htb: 0,
@@ -23,117 +21,98 @@ export default async function handler(
 
 	for (const machine of urlMachines) {
 		const response = await axios.get(machine.url);
-		const data = parse(response.data);
-		const table = data.querySelector("table");
+		const csv = response.data;
 
-		if (table?.childNodes) {
-			for (const info of table.childNodes) {
-				const total = info.childNodes.length ?? 0;
+		if (machine.platform === mapInfo.htb) {
+			const content = parseTextToObjectsHTB(csv);
+
+			for (const element of content) {
+				if (!regExpVideo.test(element.video)) {
+					continue;
+				}
+
 				const dataMachine = {
-					platform: "",
-					name: "",
-					os: "",
-					state: "",
-					techniques: "",
-					certification: "",
-					ip: "",
-					video: "",
+					platform: machine.platform,
+					name: element.nombre,
+					os: element.sistema,
+					state: getParseState(element.dificultad),
+					techniques: element.tecnicas,
+					certification: element.certificaciones,
+					ip: element.ip,
+					video: element.video,
 				};
 
-				const childNodesRequire = machine.platform === mapInfo.swigger ? 7 : 10;
-				if (total !== childNodesRequire) continue;
-
-				if (machine.platform === mapInfo.htb) {
-					const ip = textParseTrim(info.childNodes[2]);
-					const video = textParseTrim(info.childNodes[7]);
-					const state = getParseState(info.childNodes[4]);
-
-					if (regExpIp.test(ip) && regExpVideo.test(video)) {
-						dataMachine.platform = machine.platform;
-						dataMachine.name = textParseTrim(info.childNodes[1]);
-						dataMachine.os = textParseTrim(info.childNodes[3]);
-						dataMachine.state = state;
-						dataMachine.techniques = textParseTrim(info.childNodes[5]);
-						dataMachine.certification = textParseTrim(info.childNodes[6]);
-						dataMachine.ip = ip;
-						dataMachine.video = video;
-						totalMachines.htb++;
-						newData.push(dataMachine);
-					}
-				} else if (machine.platform === mapInfo.vuln) {
-					const techniques = generate(info.childNodes[4].childNodes);
-					const certification = generate(info.childNodes[5].childNodes);
-					const video = textParseTrim(info.childNodes[7]);
-					const state = getParseState(info.childNodes[3]);
-
-					if (regExpVideo.test(video)) {
-						dataMachine.platform = machine.platform;
-						dataMachine.name = textParseTrim(info.childNodes[1]);
-						dataMachine.os = textParseTrim(info.childNodes[2]);
-						dataMachine.state = state;
-						dataMachine.techniques = techniques;
-						dataMachine.certification = certification;
-						dataMachine.ip = textParseTrim(info.childNodes[6]);
-						dataMachine.video = video;
-						totalMachines.vuln++;
-						newData.push(dataMachine);
-					}
-				} else if (machine.platform === mapInfo.swigger) {
-					const vulnerability = info.childNodes[1].textContent.trim();
-
-					if (vulnerability !== "" && vulnerability !== "Vulnerabilidad") {
-						mapping[vulnerability] = {
-							platform: mapInfo.swigger,
-							skills: [],
-							writeUp: info.childNodes[3].textContent.trim(),
-							certs: info.childNodes[4].textContent.trim(),
-						};
-						currentVulnerability = vulnerability;
-					}
-
-					if (currentVulnerability !== "") {
-						mapping[currentVulnerability].skills.push(
-							info.childNodes[2].textContent.trim(),
-						);
-					}
-				} else if (machine.platform === mapInfo.challenge) {
-					const video = info.childNodes[4].textContent.trim();
-
-					if (!regExpVideo.test(video)) continue;
-
-					dataMachine.video = video;
-					dataMachine.certification = info.childNodes[2].textContent.trim();
-					dataMachine.platform = machine.platform;
-					dataMachine.name = info.childNodes[1].textContent.trim();
-					dataMachine.state = info.childNodes[5].textContent.trim();
-					dataMachine.techniques = info.childNodes[3].textContent
-						.trim()
-						.replaceAll("\n", "")
-						.split(",")
-						.join("\n");
-
-					totalMachines.challenge++;
-					newData.push(dataMachine);
-				}
+				totalMachines.htb++;
+				newData.push(dataMachine);
 			}
 		}
-	}
 
-	for (const relation in mapping) {
-		const { skills, certs, writeUp, platform } = mapping[relation];
-		if (regExpVideo.test(writeUp)) {
-			newData.push({
-				platform,
-				name: relation,
-				techniques: skills.join("\n"),
-				certification: certs,
-				video: writeUp,
-				ip: "",
-				os: "",
-				state: "",
-			});
-			totalMachines.swigger++;
+		if (machine.platform === mapInfo.vuln) {
+			const content = parseTextToObjectsVULN(csv);
+
+			for (const element of content) {
+				if (!regExpVideo.test(element.link_youtube)) {
+					continue;
+				}
+
+				const dataMachine = {
+					platform: machine.platform,
+					name: `${element.nombre} ${element.version}`,
+					os: element.sistema,
+					state: getParseState(element.dificultad),
+					techniques: element.tecnicas,
+					certification: element.certificaciones,
+					ip: element.link_vulnhub,
+					video: element.link_youtube,
+				};
+
+				totalMachines.vuln++;
+				newData.push(dataMachine);
+			}
 		}
+
+		if (machine.platform === mapInfo.swigger) {
+			const content = parseTextToObjectsSWIGGER(csv);
+
+			for (const element of content) {
+				if (!regExpVideo.test(element.video)) {
+					continue;
+				}
+
+				const dataMachine = {
+					platform: machine.platform,
+					name: element.nombre,
+					os: "",
+					state: "",
+					techniques: element.tecnicas,
+					certification: element.certificaciones,
+					ip: "",
+					video: element.video,
+				};
+
+				totalMachines.swigger++;
+				newData.push(dataMachine);
+			}
+		}
+
+		/* (machine.platform === mapInfo.challenge) {
+				const video = info.childNodes[4].textContent.trim();
+
+				if (!regExpVideo.test(video)) continue;
+
+				dataMachine.video = video;
+				dataMachine.certification = info.childNodes[2].textContent.trim();
+				dataMachine.name = info.childNodes[1].textContent.trim();
+				dataMachine.state = info.childNodes[5].textContent.trim();
+				dataMachine.techniques = info.childNodes[3].textContent
+					.trim()
+					.replaceAll("\n", "")
+					.split(",")
+					.join("\n");
+
+				totalMachines.challenge++;
+				newData.push(dataMachine);
+			}*/
 	}
 
 	res.status(200).json({
